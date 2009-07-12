@@ -101,7 +101,7 @@ class AwstatsMonth(object):
             if line.startswith('END_MAP'):
                 break
 
-    def __get_section(self, name):
+    def __get_raw_section(self, name):
         data = ''
         end_flag = 'END_' + name.upper()
         self.__fobject.seek(self.__pos_map[name])
@@ -119,21 +119,21 @@ class AwstatsMonth(object):
         if not self.__fobject:
             self.__init_file()
         if item not in self.__section_cache:
-            self.__section_cache[item] = self.__get_section(item)
+            self.__section_cache[item] = self.__get_raw_section(item)
         return self.__section_cache[item]
 
     def __str__(self):
         return "<AwstatsMonth " + str(self.__year) + "/" + str(self.__month).rjust(2, '0') +">"
 
 class AwstatsSection(object):
-    def __init__(self, name, data):
+    def __init__(self, name, raw_data):
         self.name = name
         self.data = data
 
     def __str__(self):
         return "%s, %s" % (name, data)
 
-__section_format_by_version = {}
+__section_format = {}
 
 __section_format['__default__'] = {
     'general':{
@@ -143,31 +143,33 @@ __section_format['__default__'] = {
         'LastUpdate':(('date',awstats_datetime),('parsed',int),('old',int),('new',int),('corrupted',int),('dropped',int)),
         '__default__':(int),
         },
-    'time':{},
-    'visitor':{},
-    'day':{},
-    'domain':{},
-    'login':{},
-    'robot':{},
-    'worms':{},
-    'emailsender':{},
-    'emailreceiver':{},
-    'session':{},
-    'sider':{},
-    'filetypes':{},
-    'os':{},
-    'browser':{},
-    'screensize':{},
-    'unknownreferer':{},
-    'unknownrefererbrowser':{},
-    'origin':{},
-    'sereferrals':{},
-    'pagerefs':{},
-    'searchwords':{},
-    'keywords':{},
-    'misc':{
-        '__default__':(('pages',int),('hits',int),('bandwidth',int))},
-    'errors':{},
-    'cluster':{},
-    'sider_404':{},
+    'time':{'__default__':(('pages',int),('hits',int),('bandwidth',int),('not_viewed_pages',int),
+                       ('not_viewed_hits',int),('not_viewed_bandwidth',int))},
+    'visitor':{'__default__':(('pages',int),('hits',int),('bandwidth',int),('last_visit',awstats_datetime,'opt'),
+                              ('last_visit_start',awstats_datetime,'opt'),('last_visit_page',str,'opt'))},
+    'day':{'__default__':(('pages',int),('hits',int),('bandwidth',int),('visits',int))},
+    'domain':{'__default__':(('pages',int),('hits',int),('bandwidth',int))},
+    'login':{'__default__':(('pages',int),('hits',int),('bandwidth',int),('last_visit',awstats_datetime))},
+    'robot':{'__default__':(('hits',int),('bandwidth',int),('last_visit',awstats_datetime),('hits_on_robots',int))},
+    'worms':{'__default__':(('hits',int),('bandwidth',int),('last_visit',awstats_datetime))},
+    'emailsender':{'__default__':(('hits',int),('bandwidth',int),('last_visit',awstats_datetime))},
+    'emailreceiver':{'__default__':(('hits',int),('bandwidth',int),('last_visit',awstats_datetime))},
+    'session':{'__default__':(int)},
+    'sider':{'__default__':(('pages',int),('bandwidth',int),('entry',int),('exit',int))},
+    'filetypes':{'__default__':(('hits',int),('bandwidth',int),('bandwidth_without_compression',int),
+                                ('bandwidth_after_compression',int))},
+    'os':{'__default__':(int)},
+    'browser':{'__default__':(int)},
+    'screensize':{}, # ???????????????
+    'unknownreferer':{'__default__':(awstats_datetime)},
+    'unknownrefererbrowser':{'__default__':(awstats_datetime)},
+    'origin':{'__default__':(('pages',int),('hits',int))},
+    'sereferrals':{'__default__':(('pages',int),('hits',int))},
+    'pagerefs':{'__default__':(('pages',int),('hits',int))},
+    'searchwords':{'__default__':(int)},
+    'keywords':{'__default__':(int)},
+    'misc':{'__default__':(('pages',int),('hits',int),('bandwidth',int))},
+    'errors':{'__default__':(('hits',int),('bandwidth',int))},
+    'cluster':{'__default__':(('pages',int),('hits',int),('bandwidth',int))},
+    'sider_404':{'__default__':(('hits',int),('last_url_referer',str))},
 }
