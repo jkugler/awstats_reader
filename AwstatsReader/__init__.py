@@ -16,8 +16,19 @@ import datetime
 import glob
 import os
 
+from odict import OrderedDict
+
 def awstats_datetime(date_string):
-    pass
+    # 20090718035227
+    # 20090701
+    if len(date_string) == 14:
+        return datetime.datetime(int(date_string[0:4]), int(date_string[4:6]), int(date_string[6:8]),
+                                 int(date_string[8:10]), int(date_string[10:12]),int(date_string[12:14]))
+
+    elif len(date_string) == 8:
+        return datetime.date(int(date_string[0:4]), int(date_string[4:6]), int(date_string[6:8]))
+    else:
+        raise RuntimeError("Invalid date/time string: '%s'" % date_string)
 
 class AwstatsReader(object):
     def __init__(self, directory, domain):
@@ -101,14 +112,16 @@ class AwstatsMonth(object):
             if line.startswith('END_MAP'):
                 break
 
-    def __get_raw_section(self, name):
-        data = ''
+    def __get_section(self, name):
+        section_data = OrderedDict()
+        k = v = ''
         end_flag = 'END_' + name.upper()
         self.__fobject.seek(self.__pos_map[name])
         lines = int(self.__fobject.readline().split(' ')[1])
         for x in xrange(lines):
-            data += self.__fobject.readline()
-        return data
+            k,v = self.__fobject.readline().strip().split(' ', 1)
+            section_data[k] = v.split(' ')
+        return section_data
 
     def __iter__(self):
         if not self.__fobject:
@@ -118,9 +131,12 @@ class AwstatsMonth(object):
     def __getitem__(self, item):
         if not self.__fobject:
             self.__init_file()
-        if item not in self.__section_cache:
-            self.__section_cache[item] = self.__get_raw_section(item)
-        return self.__section_cache[item]
+        try:
+            if item not in self.__section_cache:
+                self.__section_cache[item] = AwstatsSection(item, self.__get_section(item))
+            return self.__section_cache[item]
+        except KeyError:
+            raise KeyError("Section '%s' does not exist" % item)
 
     def __str__(self):
         return "<AwstatsMonth " + str(self.__year) + "/" + str(self.__month).rjust(2, '0') +">"
@@ -128,14 +144,35 @@ class AwstatsMonth(object):
 class AwstatsSection(object):
     def __init__(self, name, raw_data):
         self.name = name
-        self.data = data
+        self.format = _section_format['__default__'][name]
+        self.data = raw_data
 
     def __str__(self):
-        return "%s, %s" % (name, data)
+        return "<AwstatsSection %s, %s>" % (self.name, self.data)
 
-__section_format = {}
+    def __get_data(self, name):
+        data = self.data[name]
+        if name in self.format:
+            format = self.format[name]
+        else:
+            format = self.format['__default__']
 
-__section_format['__default__'] = {
+        if len(format) > 1:
+            items = {}
+            for index, f in enumerate(format):
+                if len(f) == 3 and f[2] == 'opt' and len(data) <= index:
+                    break
+                items[f[0]] = f[1](data[index])
+            return items
+        else:
+            return format[0](data)
+
+    def __getitem__(self, name):
+        return self.__get_data(name)
+
+_section_format = {}
+
+_section_format['__default__'] = {
     'general':{
         'LastLine':(('date',awstats_datetime),('line',int),('offset',long),('signature',long)),
         'FirstTime':(('first_time', awstats_datetime)),
@@ -172,4 +209,5 @@ __section_format['__default__'] = {
     'errors':{'__default__':(('hits',int),('bandwidth',int))},
     'cluster':{'__default__':(('pages',int),('hits',int),('bandwidth',int))},
     'sider_404':{'__default__':(('hits',int),('last_url_referer',str))},
+    'plugin_geoip_city_maxmind':{'__default__':(('pages',int),('hits',int),('bandwidth',int),('last_access',awstats_datetime))},
 }
