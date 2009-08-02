@@ -1,0 +1,6 @@
+TODO List
+
+More/better error handling
+More sections once I have more examples
+Probably remove __section_cache as it really isn't needed
+Possibly change semantics of single-item stat objects

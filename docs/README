@@ -1,0 +1,56 @@
+ABOUT THE MODULE
+================
+AwstatsReader is an attempt at a pythonic interface to AWStats data cache
+files.  Using it, you can access year, month, and individual data points
+via dictionary-like accessors.
+
+ABOUT THE AUTHOR
+================
+Joshua Kugler (joshua@azariah.com) is a programmer and system administator
+with over 10 years of industory experience.  He is currently looking for a
+job.  Happen to have one you could offer him? :)
+Resume at: http://jjncj.com/papers/KuglerAll.pdf
+
+DISCLAIMER
+==========
+
+This is an early release...probably pre-alpha.  There are no tests yet, not
+much documentation, and the interface may change (but I hope not too much).
+
+And I haven't even put this in a public repository, as the name might (but
+probably won't) change.
+
+I wrote this via examples from an AWStats cache file, so I'm sure there are
+sections for which I do not have definitions.  If you would send me those
+sections, I'll be sure to add them.
+
+The error handling is probably a little light.  Certainly could be improved.
+
+INSTALLATION
+============
+See INSTALL
+
+LICENSE
+=======
+See COPYING
+
+EXAMPLE
+=======
+import AwstatsReader
+
+obj  = AwstatsReader.AwstatsReader('/path/to/awstats_logs', 'example.com')
+
+print obj[2007]
+print obj[2008][6]
+m = obj[2009][7]
+print m['general']
+# Access like a dictionary...
+print m['general']['LastLine']
+#...or like an object attribute
+print m['general'].LastLine
+print m.general.LastLine
+
+FEEDBACK
+========
+Please send questions/comments/suggestions to awstatsreader@azariah.com
+For now, you can find the latest version here: http://azariah.com/open_source.html

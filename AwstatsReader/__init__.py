@@ -212,7 +212,7 @@ _section_format['__default__'] = {
                                 ('bandwidth_after_compression',int))},
     'os':{'__default__':int},
     'browser':{'__default__':int},
-    'screensize':{}, # ???????????????
+    'screensize':{'__default__':int},
     'unknownreferer':{'__default__':(awstats_datetime)},
     'unknownrefererbrowser':{'__default__':(awstats_datetime)},
     'origin':{'__default__':(('pages',int),('hits',int))},
