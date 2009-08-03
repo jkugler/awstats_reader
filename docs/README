@@ -14,8 +14,9 @@ Resume at: http://jjncj.com/papers/KuglerAll.pdf
 DISCLAIMER
 ==========
 
-This is an early release...probably pre-alpha.  There are no tests yet, not
-much documentation, and the interface may change (but I hope not too much).
+This is an early release...probably pre-alpha.  There are no tests yet (haven't
+generated cache files I can release publically), not much documentation,
+and the interface may change (but I hope not too much).
 
 And I haven't even put this in a public repository, as the name might (but
 probably won't) change.
@@ -25,6 +26,11 @@ sections for which I do not have definitions.  If you would send me those
 sections, I'll be sure to add them.
 
 The error handling is probably a little light.  Certainly could be improved.
+
+Right now, this will parse and display cache files from AWStats 6.5. I've not
+tested other versions yet, as 6.5 is the only version I've had access to so far.
+
+
 
 INSTALLATION
 ============
