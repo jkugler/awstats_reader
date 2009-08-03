@@ -4,6 +4,8 @@ AwstatsReader is an attempt at a pythonic interface to AWStats data cache
 files.  Using it, you can access year, month, and individual data points
 via dictionary-like accessors.
 
+Download: http://azariah.com/open_source.html
+
 ABOUT THE AUTHOR
 ================
 Joshua Kugler (joshua@azariah.com) is a programmer and system administator
@@ -13,6 +15,8 @@ Resume at: http://jjncj.com/papers/KuglerAll.pdf
 
 DISCLAIMER
 ==========
+This is a "release early, release often" release, codnamed Joshua-hopes-
+somebody-downloads-this-and-likes-code-quality-and-hires-him.
 
 This is an early release...probably pre-alpha.  There are no tests yet (haven't
 generated cache files I can release publically), not much documentation,
@@ -29,7 +33,6 @@ The error handling is probably a little light.  Certainly could be improved.
 
 Right now, this will parse and display cache files from AWStats 6.5. I've not
 tested other versions yet, as 6.5 is the only version I've had access to so far.
-
 
 
 INSTALLATION
