@@ -18,12 +18,17 @@ def awstats_datetime(date_string):
     Parses an AWStats Date/Time or Date string and returns a datetime.datetime
     or datetime.date object, respectively.
     """
-    if len(date_string) == 14:
+    date_len = len(date_string)
+    if date_len == 14:
         return datetime.datetime(int(date_string[0:4]), int(date_string[4:6]), int(date_string[6:8]),
                                  int(date_string[8:10]), int(date_string[10:12]),int(date_string[12:14]))
 
-    elif len(date_string) == 8:
+    elif date_len == 8:
         return datetime.date(int(date_string[0:4]), int(date_string[4:6]), int(date_string[6:8]))
+    elif  date_len == 1 and date_string == '0':
+        # Used if the year is zero. Dates are always compared, never added
+        # TODO: Will give weird results if both files have a date of zero
+        return datetime.datetime(1,1,1)
     else:
         raise RuntimeError("Invalid date/time string: '%s'" % date_string)
 
@@ -140,7 +145,11 @@ class AwstatsMonth(object):
         self.__fobject.seek(self.__pos_map[name])
         lines = int(self.__fobject.readline().split(' ')[1])
         for x in xrange(lines):
-            k,v = self.__fobject.readline().strip().split(' ', 1)
+            line_data = self.__fobject.readline().strip()
+            # Seems to be an off-by-one error in some sections
+            if line_data == end_flag:
+                break
+            k,v = line_data.split(' ', 1)
             section_data[k] = v.split(' ')
         return section_data
 
@@ -163,6 +172,11 @@ class AwstatsMonth(object):
         if not self.__fobject:
             self.__init_file()
         return len(self.__section_list)
+
+    def keys(self):
+        if not self.__fobject:
+            self.__init_file()
+        return self.__section_list
 
     __getitem__ = __get_section
     __getattr__ = __get_section
@@ -221,14 +235,14 @@ class AwstatsSection(object):
     def get_sort_info(self):
         sort_num = None
         sort_by = None
+        sort_reversed = None
 
         if '__meta__' in self.__format:
-            if 'sort' in self.__format['__meta__']:
-                sort_num = self.__format['__meta__']['sort']
-            if 'sortby' in self.__format['__meta__']:
-                sort_by = self.__format['__meta__']['sortby']
+            sort_num = self.__format['__meta__'].get('sort', None)
+            sort_by = self.__format['__meta__'].get('sortby', None)
+            sort_reversed = self.__format['__meta__'].get('reversed', True)
 
-        return (sort_num, sort_by)
+        return (sort_num, sort_by, sort_reversed)
 
     def get_merge_rules(self, name):
         if name in _section_merge_rules['__default__'][self.__name]:
@@ -242,19 +256,19 @@ _section_format = {}
 _section_format['__default__'] = {
     'general':{
         'LastLine':(('date',awstats_datetime),('line',int),('offset',long),('signature',long)),
-        'FirstTime':(('first_time', awstats_datetime)),
-        'LastTime':(('last_time',awstats_datetime)),
+        'FirstTime':(('first_time', awstats_datetime),),
+        'LastTime':(('last_time',awstats_datetime),),
         'LastUpdate':(('date',awstats_datetime),('parsed',int),('old',int),('new',int),('corrupted',int),('dropped',int)),
         '__default__':(('value', int),),
         },
     'time':{'__default__':(('pages',int),('hits',int),('bandwidth',int),('not_viewed_pages',int),
                        ('not_viewed_hits',int),('not_viewed_bandwidth',int)),
-            '__meta__':{'sort':24, 'sortby':'key'}},
+            '__meta__':{'sort':24, 'sortby':'key_int', 'sort_reversed':False}},
     'visitor':{'__default__':(('pages',int),('hits',int),('bandwidth',int),('last_visit',awstats_datetime,'opt'),
                               ('last_visit_start',awstats_datetime,'opt'),('last_visit_page',str,'opt')),
                '__meta__':{'sort':25, 'sortby':'pages'}},
     'day':{'__default__':(('pages',int),('hits',int),('bandwidth',int),('visits',int)),
-           '__meta__':{'sort':31, 'sortby':'key'}},
+           '__meta__':{'sort':31, 'sortby':'key', 'sort_reversed':False}},
     'domain':{'__default__':(('pages',int),('hits',int),('bandwidth',int)),
               '__meta__':{'sort':25, 'sortby':'pages'}},
     'login':{'__default__':(('pages',int),('hits',int),('bandwidth',int),('last_visit',awstats_datetime)),

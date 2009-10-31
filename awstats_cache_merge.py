@@ -1,18 +1,32 @@
 #!/usr/bin/env python
 
+import datetime
+import operator
 import optparse
 import os
 import sys
+import time
 
 from AwstatsReader import AwstatsReader as ar
 from odict import OrderedDict as od
 
 ap = os.path.abspath
 
+# TODO: Have GOT to find a better way to do this.
+flag_datetime = datetime.datetime(1,1,1)
+flag_date = datetime.datetime(1,1,1)
+
 __version___ = '0.1'
 
-class InvalidOptions(Exception):
-    pass
+def make_get_field(field_name):
+    """
+    This returns a function that will extract the field in a tuple of the form:
+    ('dz', AttrDict([('pages', 4), ('hits', 15), ('bandwidth', 386873)]))
+    """
+    def get_field(row):
+        return row[1][field_name]
+
+    return get_field
 
 def get_opts():
 
@@ -65,14 +79,51 @@ def get_opts():
     return (opts, args)
 
 def write_file(dest_dir, domain, year, month, data):
-    pass
+    print data.keys()
+    month = '%02d' % month
+    out_file_name = os.path.join(dest_dir, 'awstats' + month + str(year) + '.' + domain + '.txt')
+    print out_file_name
+
+    outfile = open(out_file_name, 'w')
+
+    for section in data.keys():
+        outfile.write('BEGIN_' + section.upper() + ' ' + str(len(data[section])) + '\n')
+        for row in data[section]:
+            row_data = []
+            row_data.append(row) # The row name/key
+            for field in data[section][row]:
+                v = data[section][row][field]
+                if isinstance(v, datetime.datetime):
+                    # A quick hack until I come up with a better solution
+                    # TODO: FIX!!!!
+                    if v == flag_datetime:
+                        row_data.append('0')
+                    else:
+                        row_data.append(v.strftime('%Y%m%d%H%M%S'))
+                if isinstance(v, datetime.date):
+                    # TODO: FIX!!!!
+                    if v == flag_date:
+                        row_data.append('0')
+                    else:
+                        row_data.append(v.strftime('%Y%m%d'))
+                else:
+                    row_data.append(v)
+            outfile.write(' '.join([str(x) for x in row_data]) + '\n')
+
+        outfile.write('END_' + section.upper() + '\n')
+        outfile.write('\n')
+
+    outfile.close()
 
 def merge_month(m1, m2):
     """
     Merges data from two months.
     """
     data = od()
-    sections = set(m1).union(m2)
+    #sections = set(m1.keys()).union(m2.keys())
+    # We do this to keep ordering. sets (and set unions) aren't order stable
+    sections = od([(k, True) for k in m1.keys()])
+    sections.update(od([(k, True) for k in m2.keys()]))
 
     for section in sections:
         data[section] = od()
@@ -88,31 +139,59 @@ def merge_month(m1, m2):
             if d1 is None or d2 is None:
                 data[section][row_name] = d1 or d2
                 continue
+            else:
+                data[section][row_name] = od()
 
-            for field in d1:
+            # Some rows have optional fields.
+            if len(d1) >= len(d2):
+                field_list = d1.keys()
+            else:
+                field_list = d2.keys()
+
+            for field in field_list:
+                data[section][row_name][field] = od()
                 """
                 This does not account for fields that might be in one but not the other
                 """
+                # Again, those options fields
+                if field not in d1:
+                    data[section][row_name][field] = d2[field]
+                    continue
+                elif field not in d2:
+                    data[section][row_name][field] = d1[field]
+                    continue
                 merge_rule = merge_rules[field]
                 if merge_rule == 'sum':
-                    data[section][row_name] = d1[field] + d2[field]
+                    data[section][row_name][field] = d1[field] + d2[field]
                 elif merge_rule == 'min':
-                    data[section][row_name] = min([d1[field], d2[field]])
+                    data[section][row_name][field] = min([d1[field], d2[field]])
                 elif merge_rule == 'max':
-                    data[section][row_name] = max([d1[field], d2[field]])
+                    data[section][row_name][field] = max([d1[field], d2[field]])
                 elif merge_rule == 'latest':
                     """
                     Right now, I'm assuming that the second set of files
                     specified will be the later files. I haven't figured out
                     anything more elegant yet
                     """
-                    data[section][row_name] = d2[field]
+                    data[section][row_name][field] = d2[field]
                 elif merge_rule.startswith('repl'):
-                    c,v = repl.split(':',1)
-                    data[section][row_name] = v
+                    # TODO: figure out way to parse correctly so "" isn't inserted as
+                    # literal "" in output
+                    c,v = merge_rule.split(':',1)
+                    data[section][row_name][field] = str(v)
                 else:
                     raise RuntimeError("Unhandled merge rule for section '%s', row '%s', field '%s': '%s'"
                                        % (section, row_name, field, merge_rule))
+
+
+        sort_num, sort_by, sort_reversed = s1.get_sort_info()
+        if sort_num:
+            if sort_by == 'key':
+                data[section] = od(sorted(data[section].iteritems()))
+            elif sort_by == 'key_int':
+                data[section] = od(sorted(data[section].iteritems(), key=lambda x: int(x[0])))
+            else:
+                data[section] = od(sorted(data[section].iteritems(), key=make_get_field(sort_by), reverse=sort_reversed))
 
     return data
 
@@ -124,6 +203,7 @@ def main():
     """
     (opts, args) = get_opts()
 
+    # TODO: Need to get a version string
     dom1 = ar(opts.dir1, opts.domain1)
     dom2 = ar(opts.dir2, opts.domain2)
 
