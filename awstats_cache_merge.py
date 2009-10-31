@@ -150,9 +150,6 @@ def merge_month(m1, m2):
 
             for field in field_list:
                 data[section][row_name][field] = od()
-                """
-                This does not account for fields that might be in one but not the other
-                """
                 # Again, those options fields
                 if field not in d1:
                     data[section][row_name][field] = d2[field]
