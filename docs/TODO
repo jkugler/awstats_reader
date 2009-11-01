@@ -3,6 +3,6 @@ TODO List
 More/better error handling
 More sections once I have more examples
 Probably remove __section_cache as it really isn't needed
-Possibly change semantics of single-item stat objects
 Check the version of the file, as the format of the sections may vary
 Restructure the _section_format and _section_merge_rules into one dict
+Pull the version number when reading file, write it to ouput
