@@ -73,13 +73,13 @@ def get_opts():
 
     return (opts, args)
 
-def write_file(dest_dir, domain, year, month, data):
-    print data.keys()
+def write_file(dest_dir, domain, year, month, data, version):
     month = '%02d' % month
     out_file_name = os.path.join(dest_dir, 'awstats' + month + str(year) + '.' + domain + '.txt')
-    print out_file_name
 
     outfile = open(out_file_name, 'w')
+
+    outfile.write('AWSTATS DATA FILE %s (build %s)\n\n' % version)
 
     for section in data.keys():
         outfile.write('BEGIN_' + section.upper() + ' ' + str(len(data[section])) + '\n')
@@ -209,8 +209,9 @@ def main():
                 continue
 
             data = merge_month(dom1[year][month], dom2[year][month])
+            version = sorted((dom1[year][month].version, dom2[year][month].version), reverse=True)[0]
 
-            write_file(opts.outdir, opts.outdomain, year, month, data)
+            write_file(opts.outdir, opts.outdomain, year, month, data, version)
 
 if __name__ == '__main__':
     main()

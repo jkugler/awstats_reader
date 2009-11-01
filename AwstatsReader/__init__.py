@@ -144,7 +144,8 @@ class AwstatsMonth(object):
     def __init_file(self):
         self.__fobject = open(self.__fname)
 
-        self.__version = self.__fobject.readline().split()[3]
+        version = self.__fobject.readline().split()[3:6]
+        self.__version = (version[0], version[2].replace(')',''))
 
         for line in self.__fobject:
             if line.startswith('POS_'):
@@ -196,6 +197,8 @@ class AwstatsMonth(object):
         if not self.__fobject:
             self.__init_file()
         return self.__section_list
+
+    version = property(lambda self:self.__version)
 
     __getitem__ = __get_section
     __getattr__ = __get_section
