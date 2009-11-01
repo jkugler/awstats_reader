@@ -1,20 +1,15 @@
 #!/usr/bin/env python
 
-import datetime
 import operator
 import optparse
 import os
 import sys
 import time
 
-from AwstatsReader import AwstatsReader as ar
+from AwstatsReader import AwstatsReader as ar, AwstatsDateTime, AwstatsDate
 from odict import OrderedDict as od
 
 ap = os.path.abspath
-
-# TODO: Have GOT to find a better way to do this.
-flag_datetime = datetime.datetime(1,1,1)
-flag_date = datetime.datetime(1,1,1)
 
 __version___ = '0.1'
 
@@ -93,19 +88,10 @@ def write_file(dest_dir, domain, year, month, data):
             row_data.append(row) # The row name/key
             for field in data[section][row]:
                 v = data[section][row][field]
-                if isinstance(v, datetime.datetime):
-                    # A quick hack until I come up with a better solution
-                    # TODO: FIX!!!!
-                    if v == flag_datetime:
-                        row_data.append('0')
-                    else:
-                        row_data.append(v.strftime('%Y%m%d%H%M%S'))
-                if isinstance(v, datetime.date):
-                    # TODO: FIX!!!!
-                    if v == flag_date:
-                        row_data.append('0')
-                    else:
-                        row_data.append(v.strftime('%Y%m%d'))
+                if isinstance(v, AwstatsDateTime):
+                    row_data.append(v.strftime('%Y%m%d%H%M%S'))
+                elif isinstance(v, AwstatsDate):
+                    row_data.append(v.strftime('%Y%m%d'))
                 else:
                     row_data.append(v)
             outfile.write(' '.join([str(x) for x in row_data]) + '\n')
@@ -120,7 +106,6 @@ def merge_month(m1, m2):
     Merges data from two months.
     """
     data = od()
-    #sections = set(m1.keys()).union(m2.keys())
     # We do this to keep ordering. sets (and set unions) aren't order stable
     sections = od([(k, True) for k in m1.keys()])
     sections.update(od([(k, True) for k in m2.keys()]))
@@ -131,7 +116,9 @@ def merge_month(m1, m2):
         s1 = m1[section]
         s2 = m2[section]
 
-        for row_name in set(s1.keys()).union(s2.keys()):
+        rows = od([(k, True) for k in s1.keys()])
+        rows.update(od([(k, True) for k in s2.keys()]))
+        for row_name in rows:
             merge_rules = s1.get_merge_rules(row_name)
             d1 = s1.get(row_name)
             d2 = s2.get(row_name)

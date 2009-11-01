@@ -13,6 +13,26 @@ import odict
 od = odict.OrderedDict
 d = dict
 
+class AwstatsDateTime(datetime.datetime):
+    def strftime(self, format):
+        # A special flag value used by Awstats Reader
+        # It's an (relatively safe) assumption that Awstats Reader won't be
+        # processing data from year 1 AD
+        # This is used because there are cases where an AWSTats date
+        # (or datetime) field may be simply '0'
+        if self.year == 1:
+            return '0'
+        else:
+            return datetime.datetime.strftime(self, format)
+
+class AwstatsDate(datetime.date):
+    def strftime(self, format):
+        # See comment on AwstatsDatetime
+        if self.year == 1:
+            return '0'
+        else:
+            return datetime.date.strftime(self, format)
+
 def awstats_datetime(date_string):
     """
     Parses an AWStats Date/Time or Date string and returns a datetime.datetime
@@ -20,15 +40,14 @@ def awstats_datetime(date_string):
     """
     date_len = len(date_string)
     if date_len == 14:
-        return datetime.datetime(int(date_string[0:4]), int(date_string[4:6]), int(date_string[6:8]),
+        return AwstatsDateTime(int(date_string[0:4]), int(date_string[4:6]), int(date_string[6:8]),
                                  int(date_string[8:10]), int(date_string[10:12]),int(date_string[12:14]))
 
     elif date_len == 8:
-        return datetime.date(int(date_string[0:4]), int(date_string[4:6]), int(date_string[6:8]))
+        return AwstatsDate(int(date_string[0:4]), int(date_string[4:6]), int(date_string[6:8]))
     elif  date_len == 1 and date_string == '0':
         # Used if the year is zero. Dates are always compared, never added
-        # TODO: Will give weird results if both files have a date of zero
-        return datetime.datetime(1,1,1)
+        return AwstatsDateTime(1,1,1)
     else:
         raise RuntimeError("Invalid date/time string: '%s'" % date_string)
 
@@ -291,7 +310,8 @@ _section_format['__default__'] = {
     'screensize':{'__default__':(('value', int),)},
     'unknownreferer':{'__default__':(('value', awstats_datetime),)},
     'unknownrefererbrowser':{'__default__':(('value', awstats_datetime),)},
-    'origin':{'__default__':(('pages',int),('hits',int))},
+    'origin':{'__default__':(('pages',int),('hits',int)),
+              '__meta__':{'sort':5, 'sortby':'key'}},
     'sereferrals':{'__default__':(('pages',int),('hits',int))},
     'pagerefs':{'__default__':(('pages',int),('hits',int)),
                 '__meta__':{'sort':25, 'sortby':'pages'}},
@@ -300,7 +320,8 @@ _section_format['__default__'] = {
     'keywords':{'__default__':(('value', int),),
                 '__meta__':{'sort':25, 'sortby':'value'}},
     'misc':{'__default__':(('pages',int),('hits',int),('bandwidth',int))},
-    'errors':{'__default__':(('hits',int),('bandwidth',int))},
+    'errors':{'__default__':(('hits',int),('bandwidth',int)),
+              '__meta__':{'sort':5, 'sortby':'key_int'}},
     'cluster':{'__default__':(('pages',int),('hits',int),('bandwidth',int))},
     'sider_404':{'__default__':(('hits',int),('last_url_referer',str))},
     'plugin_geoip_city_maxmind':{'__default__':(('pages',int),('hits',int),('bandwidth',int),('last_access',awstats_datetime))},
