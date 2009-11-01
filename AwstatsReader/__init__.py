@@ -313,7 +313,7 @@ an AWSTats cache file.
 _section_merge_rules = {}
 _section_merge_rules['__default__'] = {
     'general':{
-        'LastLine':d((('date','max'),('line','max'),('offset','max'),('signature','repl:""'))),
+        'LastLine':d((('date','max'),('line','max'),('offset','max'),('signature','repl:'))),
         'FirstTime':{'first_time':'min'},
         'LastTime':{'last_time':'max'},
         'LastUpdate':d((('date','max'),('parsed','sum'),('old','sum'),('new','sum'),('corrupted','sum'),('dropped','sum'))),
