@@ -2,7 +2,17 @@ Change Log
 
 + New Feature
 - Bug fix
-* Iconpatible change
+* Incompatible change
+
+2009-11-22
+  * Renamed package to awstats_reader to better comply with PEP8
+
+2009-11-04
+  + Tagged the repo with EE Internet's permission to release awstats_cache_merge.py as open source
+
+2009-10-21
+  + Added awstats_cache_merge.py
+
 
 2009-08-02
   + Initial Releaese
