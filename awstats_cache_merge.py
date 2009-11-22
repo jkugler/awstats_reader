@@ -6,7 +6,7 @@ import os
 import sys
 import time
 
-from AwstatsReader import AwstatsReader as ar, AwstatsDateTime, AwstatsDate
+from awstats_reader import AwstatsReader as ar, AwstatsDateTime, AwstatsDate
 from odict import OrderedDict as od
 
 ap = os.path.abspath
