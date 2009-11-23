@@ -2,17 +2,31 @@ Change Log
 
 + New Feature
 - Bug fix
+| Neutral change
 * Incompatible change
 
 2009-11-22
   * Renamed package to awstats_reader to better comply with PEP8
+  | awstats_cache_merge.py using new package name
+  | Refactored the merge code back into the AwstatsSection class
+  | Caught up the change log
 
 2009-11-04
   + Tagged the repo with EE Internet's permission to release awstats_cache_merge.py as open source
 
+2009-11-01
+  + Rows are order stabilized now when merging
+  + Came up with a way to handle year '0'
+
+2009-10-31
+  + Dealing with year '0'
+  + Month object now has a "key()s" method
+  + Improved sorting: can sort in reverse, and with integer keys
+
+
 2009-10-21
   + Added awstats_cache_merge.py
-
+  + Modifications to AwstatsReader to make merging work more smoothly
 
 2009-08-02
   + Initial Releaese

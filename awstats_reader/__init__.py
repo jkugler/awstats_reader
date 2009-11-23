@@ -266,11 +266,45 @@ class AwstatsSection(object):
 
         return (sort_num, sort_by, sort_reversed)
 
-    def get_merge_rules(self, name):
-        if name in _section_merge_rules['__default__'][self.__name]:
-            return _section_merge_rules['__default__'][self.__name][name]
+    def __merge_sum(v1, v2):
+        return v1 + v2
+
+    def __merge_min(v1, v2):
+        return min(v1, v2)
+
+    def __merge_max(v1, v2):
+        return max(v1, v2)
+
+    def __merge_latest(v1, v2):
+        """
+        Right now, I'm assuming that the second set of files specified will
+        be the later files. I have an idea for making this better, but haven't
+        had time to really think it through and code it up.
+        """
+        return v2
+
+    merge_funcs = {'sum':__merge_sum, 'min':__merge_min,
+                   'max':__merge_max, 'latest':__merge_latest}
+
+    def merge(self, other, row_name, field_name):
+        """
+        'other' is the other section which we are merging
+        """
+        if row_name in _section_merge_rules['__default__'][self.__name]:
+            merge_rule = _section_merge_rules['__default__'][self.__name][row_name][field_name]
         else:
-            return _section_merge_rules['__default__'][self.__name]['__default__']
+            merge_rule = _section_merge_rules['__default__'][self.__name]['__default__'][field_name]
+
+        if merge_rule.startswith('repl'):
+            c,v = merge_rule.split(':',1)
+            return str(v)
+        else:
+            try:
+                return AwstatsSection.merge_funcs[merge_rule](self.get(row_name)[field_name],
+                                                              other.get(row_name)[field_name])
+            except KeyError:
+                raise RuntimeError("Unhandled merge rule for section '%s', row '%s', field '%s': '%s'"
+                                   % (self.__name, row_name, field_name, merge_rule))
 
 
 _section_format = {}

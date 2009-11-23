@@ -119,7 +119,6 @@ def merge_month(m1, m2):
         rows = od([(k, True) for k in s1.keys()])
         rows.update(od([(k, True) for k in s2.keys()]))
         for row_name in rows:
-            merge_rules = s1.get_merge_rules(row_name)
             d1 = s1.get(row_name)
             d2 = s2.get(row_name)
 
@@ -144,29 +143,7 @@ def merge_month(m1, m2):
                 elif field not in d2:
                     data[section][row_name][field] = d1[field]
                     continue
-                merge_rule = merge_rules[field]
-                if merge_rule == 'sum':
-                    data[section][row_name][field] = d1[field] + d2[field]
-                elif merge_rule == 'min':
-                    data[section][row_name][field] = min([d1[field], d2[field]])
-                elif merge_rule == 'max':
-                    data[section][row_name][field] = max([d1[field], d2[field]])
-                elif merge_rule == 'latest':
-                    """
-                    Right now, I'm assuming that the second set of files
-                    specified will be the later files. I haven't figured out
-                    anything more elegant yet
-                    """
-                    data[section][row_name][field] = d2[field]
-                elif merge_rule.startswith('repl'):
-                    # TODO: figure out way to parse correctly so "" isn't inserted as
-                    # literal "" in output
-                    c,v = merge_rule.split(':',1)
-                    data[section][row_name][field] = str(v)
-                else:
-                    raise RuntimeError("Unhandled merge rule for section '%s', row '%s', field '%s': '%s'"
-                                       % (section, row_name, field, merge_rule))
-
+                data[section][row_name][field] = s1.merge(s2, row_name, field)
 
         sort_num, sort_by, sort_reversed = s1.get_sort_info()
         if sort_num:
