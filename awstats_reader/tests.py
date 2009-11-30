@@ -8,12 +8,12 @@ class TestAwstatsReader(unittest.TestCase):
     """Tests the AwstatsReader main object"""
 
     def test_init(self):
-        """Make sure we can initialize the class"""
+        """Ensure we can initialize the class"""
         ar = awstats_reader.AwstatsReader('/tmp', 'example.com')
         self.assertTrue(isinstance(ar, awstats_reader.AwstatsReader))
 
     def test_get_year_fail(self):
-        """Getting an invalid year raises an exception"""
+        """Ensure getting an invalid year raises an exception"""
         ar = awstats_reader.AwstatsReader('/tmp', 'example.com')
         self.assertRaises(KeyError, ar.__getitem__, 9999)
 
