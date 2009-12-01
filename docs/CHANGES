@@ -5,6 +5,12 @@ Change Log
 | Neutral change
 * Incompatible change
 
+2009-11-29
+  + More tests. Up to 13! :)
+
+2009-11-29
+  + Test framework in place, along with a few tests
+
 2009-11-22
   * Renamed package to awstats_reader to better comply with PEP8
   | awstats_cache_merge.py using new package name

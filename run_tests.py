@@ -6,13 +6,12 @@ import unittest
 
 # Set up the test environment
 opd = os.path.dirname
-lib_dir = opd(opd(opd(os.path.abspath(__file__))))
-sys.path.insert(0, lib_dir)
+sys.path.insert(0, opd(os.path.abspath(__file__)))
 
-from awstats_reader import tests
+from awstats_reader import tests as awsr_tests
 
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromModule(tests)
+    suite = unittest.TestLoader().loadTestsFromModule(awsr_tests)
     unittest.TextTestRunner(verbosity=2).run(suite)
 
 # Some old quick and dirty tests. Will delete later.
