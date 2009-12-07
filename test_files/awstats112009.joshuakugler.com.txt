@@ -1,0 +1,1251 @@
+AWSTATS DATA FILE 6.7 (build 1.892)
+# If you remove this file, all statistics for date 200911 will be lost/reset.
+
+# Position (offset in bytes) in this file of beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 1915                
+POS_TIME 2610                
+POS_VISITOR 3735                
+POS_DAY 19625               
+POS_DOMAIN 20543               
+POS_LOGIN 21241               
+POS_ROBOT 21396               
+POS_WORMS 22723               
+POS_EMAILSENDER 22854               
+POS_EMAILRECEIVER 22997               
+POS_SESSION 23073               
+POS_SIDER 23283               
+POS_FILETYPES 28376               
+POS_OS 28660               
+POS_BROWSER 28915               
+POS_SCREENSIZE 29619               
+POS_UNKNOWNREFERER 29693               
+POS_UNKNOWNREFERERBROWSER 30743               
+POS_ORIGIN 31108               
+POS_SEREFERRALS 31253               
+POS_PAGEREFS 31445               
+POS_SEARCHWORDS 32622               
+POS_KEYWORDS 34542               
+POS_MISC 2274                
+POS_ERRORS 35803               
+POS_CLUSTER 21097               
+POS_SIDER_404 35922               
+POS_PLUGIN_geoip_city_maxmind 36714               
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20091201000816 251052 53863094 32340283382
+FirstTime 20091101000759
+LastTime 20091129233921
+LastUpdate 20091130160413 251052 0 214398 0 36653
+TotalVisits 708                 
+TotalUnique 291                 
+MonthHostsKnown 209                 
+MonthHostsUnknown 94                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 5 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 156 168 2510041 254 266 4428775
+1 156 182 3051356 203 218 3840921
+2 137 172 3140397 162 170 3183365
+3 112 168 2739483 205 215 3318840
+4 89 100 2059509 238 249 5887489
+5 111 147 2096465 194 207 3698211
+6 98 127 1265660 173 187 3271091
+7 120 141 2101239 153 165 3645656
+8 99 126 2171778 203 211 5123307
+9 112 158 2870443 219 245 5804391
+10 76 97 2224951 158 171 4035352
+11 82 109 1279721 196 208 4329709
+12 125 175 2238526 176 194 3876410
+13 115 164 2025733 162 173 3246847
+14 115 139 1976007 189 198 4373043
+15 145 223 2643930 232 247 4962967
+16 116 147 1612417 160 178 3367448
+17 126 234 3045903 303 319 17282754
+18 116 166 2428438 197 206 4499149
+19 144 228 2968287 191 208 4401652
+20 214 290 4024119 158 169 4320891
+21 176 226 3331345 193 208 5414235
+22 208 297 3790882 159 173 2913106
+23 199 218 4230941 255 272 4949702
+END_TIME
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 303
+66-230-84-242-rb1.fai.dsl.dynamic.acsalaska.net 1230 1230 0 20091129233921
+155-62-174-206.static.gci.net 416 416 5242720 20091125022140
+twoface.dreamhost.com 143 143 11503492 20091103161241
+216-67-15-46-rb2.fai.dsl.dynamic.acsalaska.net 51 170 1475852 20091129225948
+h-180-160.scoutjet.com 50 50 300904 20091123070254
+mail.seawaterdawn.com 42 42 1642684 20091128021556
+58.61.164.39 41 42 1047756 20091129133710
+66-230-87-163-rb1.fai.dsl.dynamic.acsalaska.net 39 39 0 20091101190900
+95.211.14.165 37 37 0 20091129130049
+h-180-121.scoutjet.com 31 31 194021 20091128061219
+illchn-static-202.54.132.190.vsnl.net.in 3 14 103665 20091119124237
+bc1-ext.massmutual.com 3 11 16827 20091105193948
+c69.compu-share.com 2 9 51874 20091117225353
+one.telehealth.ph 1 1 94 20091126141550
+211.233.79.185 1 1 7244 20091127071937
+static-208-80-193-27.as13448.com 1 2 538698 20091107020141
+h-128-140.cssgroup.lv 1 1 150861 20091113123817
+tmbg.duckduckgo.com 1 1 150861 20091118211634
+123.125.156.136 1 1 39687 20091121020028
+82-38-44-252.cable.ubr03.brad.blueyonder.co.uk 2 12 83643 20091114150418
+82.114.160.35 1 1 37873 20091127171800
+s01060013109fdc93.ed.shawcable.net 4 12 16986 20091120072607
+c-75-74-235-74.hsd1.fl.comcast.net 2 2 131072 20091119224021
+host-static-92-115-197-147.moldtelecom.md 1 1 38421 20091107223541
+host-41-196-81-101.static.link.com.eg 2 10 46398 20091107205326
+pool-71-115-40-240.sbndin.dsl-w.verizon.net 2 9 15492 20091116145117
+msnbot-65-55-108-245.search.msn.com 11 11 60852 20091127170408
+bzq-82-81-44-79.red.bezeqint.net 2 2 176363 20091108070300
+216.104.15.134 1 1 35486 20091120093923
+165.mia.dynamic.cubbsnet.com 1 1 7244 20091112161953
+c-98-196-168-191.hsd1.tx.comcast.net 1 1 150861 20091119232628
+210.211.109.7 2 2 86444 20091118134704
+ppp24-115.pppoe.mtu-net.ru 6 30 46028 20091104153246
+nat01.medtronic.com 2 10 15343 20091105193525
+cpe-90-157-173-28.dynamic.amis.net 1 1 38421 20091118190156
+mx-ll-58.147.103-62.static.tttmaxnet.com 1 1 37873 20091121090018
+strocal.com 3 15 491502 20091109221113
+cpe-98-157-205-140.ma.res.rr.com 2 10 15344 20091129122958
+adsl-69-234-123-120.dsl.irvnca.pacbell.net 1 1 43314 20091117162755
+host-98-127-150-183.gdj-co.client.bresnan.net 1 1 7047 20091102191105
+sucuri.holistica.com.br 1 1 42024 20091109044549
+host117.200-82-60.telecom.net.ar 2 13 102659 20091110172851
+65.55.110.166 2 3 8053 20091108054708
+static-208-80-193-28.as13448.com 1 1 150861 20091105111214
+mnhm-5f75fcd5.pool.mediaways.net 2 9 14126 20091111131001
+195.80.204.200 1 6 446013 20091126100015
+65.55.108.244 16 16 102240 20091129105732
+115.238.66.254 16 16 173906 20091109122144
+195.88.33.77 1 1 35508 20091102034100
+static-208-80-193-37.as13448.com 2 2 198748 20091124023531
+59.164.13.135.man-static.vsnl.net.in 1 1 38421 20091107075640
+71-91-132-87.dhcp.mtgy.al.charter.com 2 13 102656 20091125212026
+hosted-by-ecatel.net 3 3 452584 20091127011331
+dsl-201-137-144-229-dyn.prod-infinitum.com.mx 1 1 40478 20091109190036
+static-208-80-193-43.as13448.com 3 3 246634 20091117034437
+h-68-165-4-196.snvacaid.dynamic.covad.net 4 20 30684 20091118165117
+66-230-114-117-dsl-rb1.nwc.acsalaska.net 20 20 252054 20091121231233
+mail.equitable.ca 4 13 57384 20091111135346
+mnch-5d872e52.pool.mediaways.net 3 14 103665 20091109214633
+hosting.epitech.eu 13 13 656880 20091109205358
+208.91.113.20 1 1 150861 20091127042943
+143.red-213-98-178.staticip.rima-tde.net 2 10 15817 20091119091411
+62.16.67.22 1 1 42023 20091115043559
+abts-kk-static-149.17.166.122.airtelbroadband.in 2 9 15281 20091104120340
+swsoft.mipt.ru 2 9 15493 20091119093722
+dsl212-235-107-76.bb.netvision.net.il 23 23 894071 20091129140144
+cpe-76-167-66-187.socal.res.rr.com 1 1 4434 20091112190204
+bot3.linguee.com 2 2 25502 20091128114936
+68-156-159-010.ptr.bellsouth.net 3 15 84737 20091124153457
+static.48.165.47.78.clients.your-server.de 1 1 25504 20091101192446
+hosted-by.leaseweb.com 5 5 212833 20091128154828
+static-208-80-193-33.as13448.com 1 2 435723 20091128034619
+86.96.228.87 4 7 20506 20091105023444
+net66-219-58-34.static-customer.corenap.com 23 23 171847 20091110064615
+173-15-216-65-busname-atlanta.hfc.comcastbusiness.net 2 11 100383 20091111171716
+dyn073249.shef.ac.uk 2 10 15342 20091109135135
+150.70.84.26 3 3 50120 20091126065643
+168.10.168.61 2 2 78454 20091121090058
+host81-141-47-155.wlms-broadband.com 4 14 85659 20091108191307
+58.61.164.140 18 19 461204 20091129013927
+ip70-191-83-10.sb.sd.cox.net 3 10 15020 20091106220537
+151.194.17.231 4 11 54957 20091113030118
+msnbot-65-55-108-243.search.msn.com 5 5 8929 20091126153719
+cf1.adgooroo.com 1 1 7246 20091111205324
+58.61.164.139 19 20 486706 20091128235631
+152-130-7-198.res.net.va.gov 4 14 85659 20091105195300
+61.145.121.124 1 1 38530 20091113173639
+cpc1-bexl7-2-0-cust389.2-3.cable.virginmedia.com 2 9 13104 20091108221318
+139-36-178-94.pool.ukrtel.net 1 1 150861 20091129065331
+ec2-174-129-132-43.compute-1.amazonaws.com 8 11 210518 20091111051004
+d58-105-92-27.dsl.nsw.optusnet.com.au 2 10 15817 20091109105420
+38.100.8.50 13 13 141948 20091125074051
+70.36.103.58 1 1 150862 20091116192931
+static-208-80-193-38.as13448.com 4 4 500470 20091122010724
+msnbot-65-55-109-53.search.msn.com 2 3 6552 20091101125557
+static-208-80-193-29.as13448.com 0 2 775674 
+38.24.96.58.static.exetel.com.au 8 16 102020 20091124212127
+ool-4a5889c1.dyn.optonline.net 2 2 301722 20091125200118
+blink.ivegotafang.com 1 1 150861 20091103224345
+91.193.255.174 1 1 94 20091126151820
+202.108.50.12 1 1 38530 20091115065442
+89.149.244.89 1 1 150862 20091116021607
+ns.km33405-03.keymachine.de 9 9 400357 20091110091502
+msnbot-65-55-110-239.search.msn.com 2 3 41445 20091112072546
+92.28.215.19 2 6 483550 20091105184533
+ns.km35731.keymachine.de 2 2 51004 20091108104523
+ec2-75-101-254-66.compute-1.amazonaws.com 12 12 896034 20091101032507
+host-49-253.comunique.hu 1 1 40948 20091107075649
+156-85-247-190.fibertel.com.ar 0 2 86243 
+ohout.ottawahospital.on.ca 4 13 85225 20091120201210
+70.36.103.42 1 1 150862 20091123154601
+proxy2.telconet.net 1 1 94 20091126152429
+65.55.110.90 2 3 9009 20091117130534
+58.61.164.40 18 18 459042 20091129000423
+dsl212-235-107-45.bb.netvision.net.il 2 2 77061 20091117135339
+199.165.97.91 2 2 25208 20091129232324
+74.205.116.38 1 1 150862 20091116001855
+122.70.146.53 3 3 206921 20091125200106
+216.218.65.76 3 14 103666 20091111171211
+203.190.113.202 4 14 90031 20091119115954
+p7123e3d4.np.gmx.net 2 9 15282 20091109095910
+msnbot-65-55-104-65.search.msn.com 1 2 43670 20091126150758
+cpe-66-91-223-188.hawaii.res.rr.com 2 10 47593 20091104044353
+69.65.3.82 30 30 1204286 20091129232107
+c-76-17-79-205.hsd1.ga.comcast.net 0 2 2275 
+arletty2-200-11.intra.cea.fr 1 8 7647 20091104134038
+65.55.107.214 2 3 14540 20091109161242
+84.la.dynamic.cubbsnet.com 1 1 25502 20091116225244
+88.la.dynamic.cubbsnet.com 1 1 7243 20091113172031
+47.vaweb4.dynamic.cubbsnet.com 2 2 51003 20091113170208
+110-132-105-65.rev.home.ne.jp 1 1 42023 20091113084241
+c-24-131-186-186.hsd1.mn.comcast.net 2 9 16669 20091121231221
+173-27-109-199.client.mchsi.com 2 9 15493 20091111025617
+125.165.30.2 2 9 16671 20091118090637
+216.104.15.142 1 1 38422 20091109105614
+120.28.64.94 20 27 763494 20091125200313
+217.116.61.123 13 13 656880 20091109214520
+comofau.lnk.telstra.net 2 10 15344 20091111033407
+ips-crawl3.colo-fo.ilg1.verisign.com 11 11 699879 20091107144715
+ip-95-111-5-163.home.megalan.bg 3 11 15361 20091114161601
+cpe000db9166236-cm00186845d2ae.cpe.net.cable.rogers.com 2 10 15343 20091107010807
+206.208.223.1 4 14 22560 20091102151835
+h-68-167-56-231.cmbrmaor.static.covad.net 4 12 18654 20091117155936
+secure.activehire.com 2 2 70269 20091112132214
+78.142.84.136 1 8 13080 20091119052713
+114.80.93.73 23 23 586552 20091129154751
+ip-188-112-151-204.ngn.lv 2 2 78637 20091101170119
+customer-148-233-239-24.uninet.net.mx 1 1 94 20091126142125
+proxy2.bigriver.net 2 10 20456 20091112170525
+blv-proxy-08.boeing.com 1 6 466012 20091103184305
+ip68-106-178-97.hr.hr.cox.net 2 2 71846 20091105175810
+static-208-80-193-34.as13448.com 0 1 387837 
+124.115.4.215 23 24 588714 20091129154059
+95-177-85-11.adeptsolo.managedbroadband.co.uk 3 10 16024 20091114150024
+static-acs-24-154-167-232.zoominternet.net 1 1 42023 20091118043451
+msnbot-65-55-107-217.search.msn.com 2 3 8103 20091107133038
+ool-44c2eb6b.dyn.optonline.net 2 9 15798 20091103030125
+msnbot-65-55-107-207.search.msn.com 2 3 8617 20091115121932
+65.55.110.26 2 3 8008 20091124030122
+66.249.85.66 1 1 20 20091125144411
+98.129.118.114 1 1 7243 20091120201013
+c-66-30-83-149.hsd1.nh.comcast.net 2 2 84578 20091113044741
+usrfw01.prenhall.com 3 11 16825 20091117150351
+42.vaweb4.dynamic.cubbsnet.com 1 1 25502 20091112233622
+host242-124-dynamic.17-87-r.retail.telecomitalia.it 2 10 15342 20091122230336
+216.104.15.138 1 1 2234 20091109221238
+58.185.154.226 2 9 15497 20091103084704
+c-67-186-208-111.hsd1.ut.comcast.net 0 1 2299 
+194.19.26.200 2 10 15341 20091106091949
+cpe-76-167-60-94.socal.res.rr.com 2 9 15018 20091115074153
+ppp121-44-108-229.lns20.syd6.internode.on.net 2 9 15491 20091117030410
+c-76-27-56-101.hsd1.ut.comcast.net 4 18 30986 20091105033157
+cpe-24-174-3-121.austin.res.rr.com 4 12 17357 20091119010133
+119.51.93.162 1 1 42023 20091125051428
+190.41.142.157 1 1 42943 20091125194426
+dsl212-235-107-33.bb.netvision.net.il 2 2 78033 20091126175102
+msnbot-65-55-104-23.search.msn.com 2 3 7577 20091101151127
+c-24-143-104-82.customer.broadstripe.net 3 11 21464 20091109221120
+msnbot-65-55-107-235.search.msn.com 2 3 7780 20091128144410
+ip-212-117-174-32.server.lu 21 21 462392 20091105175918
+d47.schsr.unc.edu 3 13 84651 20091109172235
+unassigned.calpop.com 2 2 82098 20091123023342
+atoulouse-151-1-71-76.w81-49.abo.wanadoo.fr 2 9 14450 20091117110443
+wsip-68-225-17-98.oc.oc.cox.net 3 11 16827 20091104011651
+80-183-237-24.gci.net 2 7 156545 20091116071319
+98.129.118.121 1 1 25503 20091123233330
+ip98-169-251-46.dc.dc.cox.net 4 14 85660 20091123153406
+msnbot-65-55-107-245.search.msn.com 1 2 7706 20091124020248
+65.55.107.184 2 3 8653 20091113114227
+88-105-51-104.dynamic.dsl.as9105.com 2 9 13522 20091108202550
+pinboard.in 3 7 97579 20091108081148
+softbank219196052134.bbtec.net 22 22 599619 20091113080027
+222.234.247.238 0 1 387837 
+44.vaweb4.dynamic.cubbsnet.com 1 1 25502 20091112162442
+adsl-69-208-72-63.dsl.klmzmi.ameritech.net 0 1 387837 
+dsl212-235-107-152.bb.netvision.net.il 6 6 234032 20091119000328
+msnbot-65-55-231-69.search.msn.com 0 3 5508 
+c-83-233-38-94.cust.bredband2.com 7 7 40960 20091107203559
+eggfusion.com 19 19 469249 20091113084357
+123.125.156.138 1 1 38530 20091121020024
+200.110.244.81 1 1 42943 20091120021052
+124.172.110.158 1 1 38531 20091116052635
+static-208-80-193-40.as13448.com 3 5 1022308 20091129102725
+msnbot-65-55-109-19.search.msn.com 1 1 19668 20091108062056
+67.213.37.62 2 9 15492 20091126174540
+124.115.1.7 17 18 435699 20091129010536
+254-59.infosys.su 31 31 1172927 20091103094010
+msnbot-65-55-109-35.search.msn.com 2 3 7723 20091108054633
+ns.km34735.keymachine.de 3 3 115228 20091113185146
+84.16.224.91 2 2 301723 20091109112357
+static-ip-cr19014611617.cable.net.co 1 1 38422 20091109190032
+65.55.214.35 0 2 775674 
+91-64-166-114-dynip.superkabel.de 1 1 37874 20091122174956
+80.la.dynamic.cubbsnet.com 2 2 51005 20091117023621
+98.129.118.125 1 1 25502 20091118215925
+174-143-158-7.static.cloud-ips.com 1 1 150862 20091129132423
+203.172.138.211 2 2 78141 20091127024619
+inet-nc01-o.oracle.com 1 9 15323 20091120224312
+static-208-80-193-26.as13448.com 1 1 150862 20091109231418
+65.55.109.58 2 3 7321 20091109155223
+dsl212-235-107-53.bb.netvision.net.il 4 4 155817 20091119143612
+64.46.248.203 4 14 57427 20091120184525
+193.103.207.10 3 11 16827 20091112092322
+83.240.223.61 2 7 13337 20091128174713
+cpe00222d1654ae-cm00222d1654aa.cpe.net.cable.rogers.com 2 9 16673 20091102182803
+host72171001390.direcway.com 3 11 52325 20091120210047
+mail.onlinebankingsolutions.com 2 9 15020 20091117201537
+bau06-1-87-89-2-221.dsl.club-internet.fr 2 9 15282 20091124103541
+cpe001aa06bdfee-cm0018c0c1ee88.cpe.net.cable.rogers.com 2 13 102657 20091124121440
+static-208-80-193-32.as13448.com 2 4 871446 20091117220528
+58.61.164.141 18 19 461204 20091129013742
+ip72-193-57-108.lv.lv.cox.net 2 2 84694 20091116101610
+65.55.109.52 1 2 7210 20091128220234
+crt-blk-1-67.208.234.in-addr.arpa 2 2 77893 20091117120822
+c-65-96-113-178.hsd1.ma.comcast.net 3 10 13352 20091101203014
+70.36.100.226 2 2 301723 20091109181335
+msnbot-65-55-104-52.search.msn.com 1 2 42504 20091126085036
+msnbot-65-55-37-186.search.msn.com 1 1 25502 20091118003038
+5ac1b003.bb.sky.com 3 11 20476 20091107221302
+190-178-71-92.speedy.com.ar 2 2 84668 20091121105121
+msnbot-65-55-109-167.search.msn.com 2 3 11166 20091123053347
+82.la.dynamic.cubbsnet.com 1 1 7245 20091118215447
+security.lightspeedsystems.com 13 13 410233 20091125021016
+static-208-80-193-42.as13448.com 2 3 689561 20091108102657
+dsl212-235-107-21.bb.netvision.net.il 2 2 77955 20091120225013
+medica20.lnk.telstra.net 3 14 84695 20091124023938
+tide536.microsoft.com 4 13 57384 20091104205504
+c-67-167-169-115.hsd1.tn.comcast.net 2 13 102656 20091125210215
+static-208-80-193-30.as13448.com 4 4 500470 20091125091332
+abts-kk-dynamic-115.9.172.122.airtelbroadband.in 4 15 110049 20091112193655
+65.55.109.202 1 2 8383 20091120055919
+70-90-51-126-connecticut.hfc.comcastbusiness.net 5 30 595119 20091123172526
+housegate10.house.gov 4 15 104673 20091120162856
+119.92.244.74.static.pldt.net 1 2 9608 20091116124724
+65.55.231.105 0 1 400493 
+host73-160-dynamic.25-79-r.retail.telecomitalia.it 2 9 13100 20091115020708
+86.96.229.90 2 6 14253 20091105023302
+14.subnet222-124-179.static.astinet.telkom.net.id 2 2 84539 20091128175102
+125.248.151.34 2 2 86474 20091121153604
+pool-72-81-130-40.bltmmd.fios.verizon.net 2 13 102658 20091123064656
+dsl212-235-107-199.bb.netvision.net.il 4 4 156125 20091117013701
+99.red-217-126-226.staticip.rima-tde.net 4 12 27366 20091112140310
+pool-71-162-67-42.bstnma.east.verizon.net 2 2 78572 20091115153802
+ip70-173-52-108.lv.lv.cox.net 1 1 42944 20091108123301
+92.50.197.210 4 4 172130 20091113084228
+124.115.1.8 18 18 459040 20091129002310
+static-208-80-193-41.as13448.com 0 1 387837 
+108.la.dynamic.cubbsnet.com 1 1 25502 20091116234754
+c-76-107-143-248.hsd1.la.comcast.net 2 2 77973 20091127162533
+p2131-ipbfp504kyoto.kyoto.ocn.ne.jp 0 2 788330 
+125.165.32.188 2 9 16670 20091121132735
+70-101-129-173.br1.dav.wv.frontiernet.net 3 10 15041 20091102082359
+maikol211.static.gvt.net.br 1 1 94 20091126151848
+116.71.1.133 1 1 41031 20091118190201
+124.115.0.146 1 1 25501 20091113223754
+crawler6132.ask.com 2 9 14016 20091118193115
+68.142.115.62 3 10 15301 20091117222830
+117.40.177.74 2 10 20455 20091129054459
+116.125.141.2 1 1 7246 20091108131132
+static-208-80-193-31.as13448.com 1 1 150861 20091103231414
+120.28.64.77 16 20 349817 20091125200308
+114.80.93.71 20 23 516533 20091129232136
+static-208-80-193-39.as13448.com 1 1 150861 20091127054551
+modemcable005.105-21-96.mc.videotron.ca 4 18 30985 20091113031251
+229.vaweb3.dynamic.cubbsnet.com 1 1 7245 20091116235257
+msnbot-65-55-109-125.search.msn.com 1 1 5606 20091123073153
+d2-69.rt-bras.wnvl.centurytel.net 4 14 85659 20091126065408
+124.115.10.68 1 1 25501 20091113223756
+116.125.141.11 1 1 7244 20091126162652
+hercules.criarnaweb.com.br 6 6 256815 20091118153110
+msnbot-65-55-110-149.search.msn.com 2 3 7299 20091116123441
+237.sub-97-250-170.myvzw.com 2 12 83644 20091104174311
+www.whois.sc 2 2 151584 20091120102827
+123.125.156.197 2 2 79221 20091128013740
+bas1-kitchener08-1176183981.dsl.bell.ca 2 10 15343 20091118190723
+121.254.224.171 2 2 76325 20091104123052
+10-63-174-206.static.gci.net 6 6 75620 20091122225843
+lsg.stuttgart.army.mil 4 12 22473 20091101130548
+123.125.156.194 1 1 37873 20091128013724
+201.228.27.4 1 1 94 20091126150208
+216.104.15.130 3 3 47886 20091120093923
+232-78-178-94.pool.ukrtel.net 1 1 25115 20091101052030
+61.150.43.95 3 11 15574 20091103123207
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 29
+20091101 159 194 6315184 29
+20091102 157 188 5547658 27
+20091103 174 208 5607695 25
+20091104 111 195 1258271 24
+20091105 140 195 2448397 26
+20091106 91 107 1189391 10
+20091107 94 131 2057781 19
+20091108 85 117 1493554 30
+20091109 132 200 3348459 33
+20091110 98 122 1597673 16
+20091111 112 172 2086065 15
+20091112 114 152 1491073 27
+20091113 147 162 3079285 42
+20091114 74 101 1374787 13
+20091115 67 83 699001 17
+20091116 91 128 2018855 30
+20091117 104 160 1451284 32
+20091118 92 130 1070697 27
+20091119 110 174 2020453 28
+20091120 91 158 1189561 24
+20091121 108 122 1307317 22
+20091122 82 91 1075914 25
+20091123 100 145 1671397 20
+20091124 116 168 1377286 16
+20091125 155 191 3175295 29
+20091126 110 138 2487873 40
+20091127 76 78 1371763 19
+20091128 81 89 1022959 21
+20091129 76 103 992643 22
+END_DAY
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 32
+net 1896 2292 11860600
+com 513 746 26927701
+ip 505 680 15065848
+il 43 43 1673094
+su 31 31 1172927
+lu 21 21 462392
+de 16 16 629967
+ca 14 54 188937
+in 13 46 364995
+eu 13 13 656880
+sc 2 2 151584
+ru 8 39 61521
+mx 2 2 40572
+co 1 1 38422
+br 8 8 298933
+edu 3 13 84651
+bg 3 11 15361
+it 4 19 28442
+hu 1 1 40948
+gov 8 29 190332
+uk 7 32 115009
+eg 2 10 46398
+ph 1 1 94
+lv 3 3 229498
+fr 5 26 37379
+id 2 2 84539
+mil 4 12 22473
+md 1 1 38421
+jp 1 3 830353
+au 10 26 117837
+ar 4 17 273570
+arpa 2 2 77893
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 33
+slurp 780 4162757 20091129184650 0
+wordpress 583 50721 20091129221522 0
+msnbot 571 10894993 20091129181705 0
+googlebot 520 3108858 20091129233922 0
+baiduspider 285 1944367 20091127101952 0
+feedfetcher\-google 259 904728 20091129233253 0
+crawl 221 4797849 20091129134842 0
+java 200 7552512 20091123084055 0
+robot 173 1542574 20091125035611 0
+exabot 128 1560622 20091127061747 0
+powermarks 4 156849 20091113184432 0
+spider 33 281553 20091129103805 0
+universalfeedparser 26 0 20091127032108 0
+yahooseeker 1 150861 20091121053829 0
+custo 7 1056028 20091125152114 0
+surveybot 3 76506 20091126043937 0
+steeler 15 64661 20091125010140 0
+bspider 74 1711219 20091129230436 0
+mediapartners\-google 38 332211 20091128174716 0
+ia_archiver 1 32934 20091109181251 0
+w3c\-checklink 1 0 20091114004811 0
+yacy 1 25502 20091127160353 0
+gigabot 8 1080923 20091120234104 0
+python 2 301722 20091113190324 0
+jeeves 13 488900 20091127183844 0
+heritrix 19 1189706 20091104100105 0
+legs 1 25502 20091104231758 0
+larbin 3 452584 20091106003400 0
+speedy 1 25502 20091127210120 0
+mj12bot 1 150861 20091107015651 0
+msiecrawler 2 77919 20091125072136 0
+\wbot[\/\-] 3 76466 20091126115002 0
+yandex 24 324803 20091129141434 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+1h+ 72
+5mn-15mn 2
+15mn-30mn 7
+2mn-5mn 10
+30s-2mn 22
+0s-30s 587
+30mn-1h 8
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 124
+/feeds/index.rss2 1425 11601832 47 42
+/ 326 14260183 305 269
+/feeds/comments.rss2 239 1418057 32 27
+/feeds/atom10.xml 234 4565169 12 17
+/plugin/checkautobackup 150 2700 5 129
+/archives/13-Building-Python-Eggs-with-C-Extensions-on-Windows.html 88 2702361 87 11
+/archives/index.php 81 3295793 6 77
+/plugin/pngbehavior.htc 49 66556 2 6
+/archives/16-Skills-vs.-Theory-Which-Should-Be-Taught.html 31 906729 23 11
+/categories/5-Humor 31 708475 25 17
+/plugin/tag/linux 3 19026 0 0
+/plugin/tag/strftime 1 5686 0 1
+/categories/13-Django 6 128447 0 0
+/plugin/tag/humor 5 28335 2 0
+/plugin/tag/bash 5 32820 2 1
+/categories/15-Education 2 39887 0 0
+/feeds/categories/5-Humor.rss 1 0 0 0
+/plugin/tag/python 5 69130 2 1
+/feeds/categories/10-Java.rss 5 5490 0 0
+/archive 11 218976 1 1
+/plugin/tag/eggs 5 29606 1 1
+/plugin/tag/windows 4 23973 2 3
+/plugin/tag/resume 8 134531 4 3
+/archives/27-dont-use-strptime,-use-a-regex.html 1 7847 0 0
+/wfwcomment.php 3 0 0 0
+/plugin/tag/mingw 1 32909 1 0
+/categories/10-Java 7 153302 0 1
+/plugin/tag/extensions 4 23679 1 0
+/feeds/categories/9-Macintosh.rss 5 5540 0 0
+/plugin/tag/difficulty 3 16178 0 0
+/archives/5-Encouraging-strong-passwords.html 2 13656 2 0
+/categories/8-Windows 6 128426 0 0
+/archives/(null) 1 4434 1 1
+/feeds/categories/8-Windows.rss 6 6063 1 0
+/categories/9-Macintosh 6 128447 0 0
+/plugin/tag/luks 1 5453 1 0
+/archives/24-When-marketing-gets-ahead-of-engineering.html 3 48222 1 1
+/plugin/tag/ssh 1 5139 1 0
+/feeds/index.rss 1 0 0 0
+/archives/19-Woohoo!-Im-published!.html 1 6472 0 0
+http://joshuakugler.com/index.php 2 71846 1 1
+/plugin/tag/uuid 1 5453 1 1
+/archives/9-Youre-using-what!.html 2 70546 1 0
+/plugin/tag/telecommuting 1 5541 1 0
+/plugin/tag/hibernate 1 5457 1 0
+/archives/8-Job-Hunting.html 1 6221 1 1
+/plugin/tag/strptime 1 5685 1 0
+/categories/4-Miscellaneous 3 152994 0 0
+/archives/12-A-near-computer-death-experience.html 18 468209 16 5
+/plugin/tag/miscommunication 1 5129 1 0
+/archives/1-Making-stew.html 4 54591 3 1
+/plugin/tag/job+hunting 3 17672 0 1
+/plugin/tag/education 2 67938 0 0
+/plugin/tag/rickroll 1 5048 1 1
+/feeds/index.rss1 1 0 0 0
+/plugin/tag/profiling 1 5686 0 0
+/archives/2009/11.html 7 132580 0 0
+/categories/14-Hardware 2 36311 0 0
+/plugin/tag/backup 4 21574 1 0
+/archives/13-Building-Python-Eggs-w...xtensions-on-Windows.html 6 43466 6 6
+/archives/2009/10.html 7 109389 1 0
+/archives/18-Looking-for-work-again.html 6 177650 0 0
+/feeds/categories/6-Python.rss 5 62515 0 0
+/categories/1-Programming 14 496432 8 0
+/comment.php 13 1452 6 6
+/archives/20-Chaining-SSH-Connections.html 2 12957 1 0
+/plugin/tag/cilk%2B%2B 1 6468 1 0
+/plugin/tag/php/ 1 25115 1 1
+/categories/3-Linux 7 219200 0 2
+/feeds/categories/15-Education.rss 9 3168 2 4
+/plugin/tag/theory 2 67938 0 0
+/archives/4-Defect-Feature-request-Who-decides.html 14 353690 14 5
+/archives/13-guid.html 1 38530 0 1
+/feeds/categories/1-Programming.rss 12 148735 3 4
+/plugin/tag/regex 1 5679 0 0
+/archives/2009/09.html 7 194514 1 0
+/categories/6-Python 6 201852 0 3
+/plugin/tag/experience 3 74870 1 0
+/plugin/tag/wireless 1 5114 0 0
+/archives/26-Generating-PDF-thumbnails.html 2 12722 1 1
+/archives/15-Real-dependencies,-not-convenient-dependencies.html 7 118320 5 2
+/archives/11-Starting-up-at-a-Startup.html 5 34755 2 1
+/plugin/tag/flash 1 5598 1 0
+/plugin/tag/c 4 23681 1 0
+/archives/17-Be-Careful-Who-You-Prank.html 4 58425 2 0
+/categories/12-Operating-Systems 4 161111 0 0
+/categories/11-Backup 2 34876 0 0
+/archives/ 5 164360 0 0
+/plugin/tag/employment 1 5544 1 1
+/archives/2-Relative-Difficulty.html 17 625659 13 10
+http://joshuakugler.com/archives/2009/11.html 1 150861 1 0
+/categories/2-System-Admin 1 5279 1 0
+/plugin/tag/old 1 5117 1 0
+http://joshuakugler.com/archives/2009/10.html 1 150861 0 1
+/plugin/tag/dell 1 5067 1 0
+/archives/7-Dont-use-Brightline-Compliance.html 3 50093 2 0
+/categories/6-python 1 6887 0 0
+/categories/7-Security 3 104100 0 3
+/plugin/tag/aol 4 20205 1 1
+/archives/2008/11/summary.html 1 4370 1 0
+/feeds/categories/3-Linux.rss 13 34950 3 2
+/feeds/atom.xml 6 229908 2 2
+/feeds/categories/12-Operating-Systems.rss 12 29076 1 5
+/archives/18-looking-for-work-again.html 1 6023 0 0
+/plugin/tag/skills 3 101906 1 1
+/authors/1-joshua-kugler 1 25498 0 0
+/archives/10-Can-you-effectively-enforce-reciprocity.html 3 62687 1 1
+/authors/1-Joshua-Kugler 4 352741 0 0
+/rss.php 25 215238 1 8
+/archives/25-I-couldnt-have-said-it-any-better,-Dell.html 4 25331 1 1
+/plugin/tag/capacitor 1 5875 1 0
+/archives/14-Get-a-better-one.html 2 12869 1 0
+/plugin/tag/learning 2 67938 1 0
+/archives/2008/08.html 1 8984 1 0
+/plugin/tag/drain 1 5871 1 0
+/archives/21-Figuring-out-why-I-cant-resume-any-more.html 2 13504 0 0
+/plugin/tag/features 1 6471 1 0
+/categories/4-miscellaneous 1 8257 0 0
+/plugin/tag/bonus 1 30037 0 0
+/archives/27-Dont-use-strptime,-use-a-regex.html 17 275252 13 3
+/feeds/categories/13-Django.rss 6 6051 1 1
+/plugin/tag/bad+design 2 62540 0 0
+/index.php 24 1398122 2 0
+/feeds/categories/7-Security.rss 4 35721 1 1
+END_SIDER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 12
+htc 49 66556 0 0
+css 157 415922 0 0
+rss2 1664 13019889 0 0
+rss1 1 0 0 0
+php 148 4982451 0 0
+html 604 21408004 0 0
+xml 240 4795077 0 0
+jpg 326 11972524 0 0
+png 147 162069 0 0
+rss 79 337309 0 0
+Unknown 362 4396199 0 0
+gif 425 271571 0 0
+END_FILETYPES
+
+# OS ID - Hits
+BEGIN_OS 19
+linuxsuse 13
+linuxredhat 8
+winxp 1366
+winlong 224
+win2000 42
+linuxfedora 20
+win95 8
+wince 3
+linuxcentos 9
+win2003 34
+linuxdebian 12
+unix 2
+winnt 125
+linuxubuntu 57
+win98 15
+linux 539
+macosx 98
+winme 15
+Unknown 1612
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 45
+msie6.0 683
+webcapture 3
+firefox3.0.1 4
+firefox3.0.14 25
+msie8.0 118
+firefox2.0.0.14 10
+msie7.0 240
+firefox0.9.1 1
+firefox2.0.0.20 6
+firefox3.5.2 21
+firefox2.0.0.6 1
+netscape0.6 2
+konqueror 1
+firefox3.5.5 165
+mozilla 156
+firefox2.0.0.17 6
+netscape4.0 39
+firefox3.0.10 27
+safari 198
+firefox3.0.15 206
+firefox3.5.4 78
+msie3.02 3
+firefox3.5.3 80
+netscape0.91 2
+msie2.0 6
+msie5.0 2
+Unknown 1452
+firefox3.0.8 9
+firefox3.0.2 1
+netscape4.61 2
+firefox3.5.1 2
+firefox3.0.4 13
+opera 66
+firefox3.0.11 18
+msie5.5 15
+netscape4.79 3
+firefox3.0.5 10
+firefox1.5.0.6 1
+firefox1.0 1
+firefox3.0.12 9
+firefox3.0.6 37
+firefox2.0.0.16 1
+firefox3.0.13 11
+msie 2
+akregator 466
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 16
+Linguee_Bot_(bot@linguee.com) 20091128114936
+Mozilla/3.0_(compatible;_WebCapture_2.0;_Auto;_Windows) 20091128002208
+MLBot_(www.metadatalabs.com/mlbot) 20091110064615
+Mozilla/4.0 20091129105732
+Fever/1.11_(Feed_Parser;_http://feedafever.com;_Allow_like_Gecko) 20091103161241
+Mozilla/5.0_(compatible;_ScoutJet;__http://www.scoutjet.com/) 20091128061219
+Mozilla/5.0_(compatible;_Firefox_compatible;_MS_IE_compatible;_not_on_Windows_server;__http://cs.daum.net/faq/site/15.html)_Daumoa-feedfetcher/2.0 20091126162652
+panscient.com 20091125074051
+Mozilla/0.91_Beta_(Windows) 20091105123633
+- 20091119232628
+Mozilla/5.0_(compatible;_MSIE_or_Firefox_mutant;_not_on_Windows_server;__http://ws.daum.net/aboutWebSearch.html)_Daumoa/2.0 20091127071937
+Mozilla/0.6_Beta_(Windows) 20091106121011
+Apple-PubSub/65.11 20091129233921
+Mozzila/4.0 20091108070256
+Mozilla/5.0_(compatible;_GoogleDocs;__http://docs.google.com) 20091125144411
+Mozilla/4.0_(compatible;) 20091125200304
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 7
+panscient.com 20091125074051
+- 20091119232628
+Apple-PubSub/65.11 20091129233921
+Linguee_Bot_(bot@linguee.com) 20091128114936
+MLBot_(www.metadatalabs.com/mlbot) 20091110064615
+Mozzila/4.0 20091108070256
+Fever/1.11_(Feed_Parser;_http://feedafever.com;_Allow_like_Gecko) 20091103161241
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 2676 2711
+From1 8 8
+From2 92 96
+From3 22 30
+From4 349 1357
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 4
+google 85 85
+ask 1 1
+google_image 5 9
+yahoo 1 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 17
+http://www.reddit.com/r/hardware/comments/7d3fr/can_someone_explain_the_capacitor_drain_trick/ 4 4
+http://www.rhinocerus.net/forum/lang-python/566230-compile-python-extensions-under-windows-cygwin.html 3 3
+http://www.raphink.info/2009/04/minimal-dependencies-and-backports.html 2 2
+http://www.facebook.com/jkugler 2 2
+http://74.125.47.132/search 2 2
+http://easymoneyltd.info 1 1
+http://www.dvbseller.com/dreambox-500c-cable-mainboard-only-p-75.html 1 1
+http://mail.python.org/pipermail/python-list/2009-May/183148.html 1 1
+http://www.reddit.com/search 1 1
+http://www.dvbseller.com/hello-kitty-keyboard-p-11.html 1 1
+http://www.mail-archive.com/matplotlib-users@lists.sourceforge.net/msg11743.html 0 1
+http://www.mail-archive.com/matplotlib-users@lists.sourceforge.net/msg11741.html 0 1
+http://209.85.229.132/search 1 5
+http://legalmoneynow.info 1 1
+http://www.reddit.com/r/programming/comments/9ng0o/regex_are_actually_better_in_this_case_whoda_thunk/ 1 1
+http://hot.gazo.us/contortion/pic12.html 0 2
+http://www.azariah.com 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 63
+bullion+logic 10
+defect+vs+change+request 3
+personal+skills+v%2fs+degree 3
+bullion+logic+wiki 2
+defect+vs.+change+request 2
+bullion+logic+definition 2
+youprank.com 2
+brightline+admin+site 2
+feature+request+vs+change+request 2
+what+is+bullion+logic%3f 2
+bullion+algebra+logic 1
+bug+vs+feature+request+humor 1
+linux+hibernate 1
+how+should+language+skills+be+taught 1
+laptop+does+not+work+capacitor+drain+trick+works+why 1
+relative+difficulty+of+sat+iis 1
+kugler+humor 1
+install+python+extension+on+windows 1
+what+is+bullion+logic 1
+change+request+feature+request 1
+brightline+compliance 1
+defect+change+request 1
+python+egg+linux+windows 1
+marketing+miscommunication 1
+isoformat+strptime 1
+entries+uuid 1
+get_str_pass_lvl 1
+skills+versus+theory 1
+open+python+egg+windows 1
+python+setup+c+extensions+on+windows 1
+cilk+mingw 1
+strptime+regular+expression 1
+what+is+the+use+of+bullion+algebra 1
+pthon+bdist_egg+build+2.4+egg+on+2.5 1
+capacitor+in+on+button+computer 1
+building+eggs+for+windows 1
+joshua+kugler+alaska 1
+chaining+ssh+port+forwarding 1
+how+to+use+strptime 1
+josh+kugler 1
+bullion+logic+defined 1
+building+python+egg 1
+computer+pop+power+switch 1
+python+setuptools+c+extensions+mingw 1
+sysadmin+resume+skills+based+chronological 1
+skill+training+versus+theory+training 1
+cilk 1
+change+request+is+a+defect%3f 1
+bullion+algebra 1
+spark+debian+package+with+dependencies 1
+pc+draining+capacitors 1
+python+strptime+regex 1
+change+requests+defect 1
+should+individuals+be+taught+only+what+will+be+directly+useful+on+a+job 1
+how+do+i+discharge+my+usb+compacitor 1
+open+python+eggs+windows 1
+bullion+logic+defininition 1
+joshua+kugler 2
+hibernate+resume+luks 1
+skills+vs+theory 2
+regexp+%2f%5c+.+%3f%5c+%2fgi 1
+language+skills+should+be+taught 1
+bullion+logic+guide 2
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 134
+bullion 24
+logic 20
+request 14
+change 11
+skills 9
+python 8
+vs 8
+defect 7
+windows 6
+what 5
+luks 1
+laptop 1
+entries 1
+strptime 4
+my 1
+power 1
+egg 4
+compliance 1
+relative 1
+install 1
+taught 3
+algebra 3
+open 2
+marketing 1
+regex 1
+computer 2
+get_str_pass_lvl 1
+setuptools 1
+of 2
+is 5
+extensions 2
+will 1
+capacitors 1
+miscommunication 1
+regular 1
+build 1
+chronological 1
+brightline 3
+a 2
+forwarding 1
+dependencies 1
+spark 1
+uuid 1
+feature 4
+capacitor 2
+in 1
+admin 2
+difficulty 1
+only 1
+guide 2
+defect%3f 1
+linux 2
+youprank.com 2
+c 2
+building 2
+hibernate 2
+works 1
+iis 1
+training 2
+sysadmin 1
+josh 1
+drain 1
+bug 1
+definition 2
+personal 3
+i 1
+2.5 1
+resume 2
+draining 1
+extension 1
+kugler 5
+bdist_egg 1
+%2f%5c 1
+button 1
+why 1
+not 1
+discharge 1
+compacitor 1
+on 5
+defininition 1
+based 1
+isoformat 1
+eggs 2
+individuals 1
+joshua 3
+versus 2
+chaining 1
+mingw 2
+skill 1
+wiki 2
+with 1
+vs. 2
+usb 1
+do 1
+humor 2
+pc 1
+to 1
+language 2
+logic%3f 2
+work 1
+job 1
+directly 1
+package 1
+setup 1
+%2fgi 1
+site 2
+regexp 1
+switch 1
+alaska 1
+pop 1
+the 1
+cilk 2
+ssh 1
+useful 1
+expression 1
+does 1
+%3f%5c 1
+defined 1
+for 1
+how 3
+port 1
+v%2fs 3
+theory 4
+be 4
+2.4 1
+degree 3
+trick 1
+use 2
+. 1
+should 3
+pthon 1
+debian 1
+requests 1
+sat 1
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 3
+206 2 250020
+301 307 61520
+404 747 69260578
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 15
+/str.php 1 -
+/robots.txt 680 -
+/apple-touch-icon.png 1 -
+/pagead/test_domain.js 1 http://joshuakugler.com/archives/12-A-near-computer-death-experience.html
+/pages/contactform.html 15 -
+/pagead/render_ads.js 1 http://joshuakugler.com/archives/12-A-near-computer-death-experience.html
+/styles/widgets/blog-widget.css 36 http://joshuakugler.com/
+/./ 2 -
+/iphone/ 2 -
+http://joshuakugler.com/ 1 -
+/js/recaptcha.js 1 http://joshuakugler.com/archives/12-A-near-computer-death-experience.html
+/pagead/osd.js 1 http://joshuakugler.com/archives/12-A-near-computer-death-experience.html
+/mobile/ 2 -
+/mobi/ 2 -
+/pagead/expansion_embed.js 1 http://joshuakugler.com/archives/12-A-near-computer-death-experience.html
+END_SIDER_404
+
+# Plugin key - Pages - Hits - Bandwidth - Last access
+BEGIN_PLUGIN_geoip_city_maxmind 172
+us_fairbanks_ak 0 1693 0 0
+unknown 0 231 0 0
+us_fort%20wainwright_ak 0 170 0 0
+us_brea_ca 0 143 0 0
+cn_beijing_22 0 143 0 0
+cn_shenzhen_30 0 118 0 0
+ph_san%20juan_09 0 47 0 0
+nl_amsterdam_07 0 45 0 0
+il_haifa_04 0 43 0 0
+us_clarks%20summit_pa 0 42 0 0
+es_madrid_29 0 12 0 0
+au_hornsby_02 0 16 0 0
+ec_guayaquil_10 0 1 0 0
+no_oslo_12 0 10 0 0
+us_irvine_ca 0 11 0 0
+ca_montreal_qc 0 18 0 0
+lv_cesis_05 0 1 0 0
+ph_tagum_24 0 2 0 0
+us_macon_ga 0 2 0 0
+sg_singapore_00 0 9 0 0
+us_sterling_va 0 11 0 0
+de_wiesbaden_05 0 1 0 0
+se_sollentuna_26 0 7 0 0
+us_atlanta_ga 0 9 0 0
+us_alexandria_va 0 14 0 0
+us_soddy%20daisy_tn 0 13 0 0
+us_redmond_wa 0 13 0 0
+id_jakarta_04 0 20 0 0
+us_arthurdale_wv 0 10 0 0
+cn_dian_02 0 11 0 0
+us_albertville_al 0 13 0 0
+de_münchen_02 0 14 0 0
+mx_mexico_09 0 2 0 0
+br_irecê_05 0 1 0 0
+us_massapequa_ny 0 9 0 0
+us_henderson_nv 0 2 0 0
+hu_budapest_05 0 1 0 0
+ph_quezon%20city_f2 0 1 0 0
+lv_riga_25 0 2 0 0
+us_lansing_mi 0 2 0 0
+ar_buenos%20aires_07 0 2 0 0
+us_chandler_az 0 10 0 0
+ca_beaumont_ab 0 12 0 0
+us_terre%20haute_in 0 10 0 0
+fr_le%20kremlin-bicêtre_a8 0 13 0 0
+us_houston_tx 0 1 0 0
+gb_sheffield_l9 0 10 0 0
+de_meerbusch_07 0 6 0 0
+us_plano_tx 0 1 0 0
+ru_tyumen_78 0 13 0 0
+us_springfield_ma 0 11 0 0
+us_bellingham_wa 0 11 0 0
+tj_dushanbe_02 0 1 0 0
+us_washington_dc 0 28 0 0
+ar_federal_08 0 13 0 0
+de_munich_02 0 11 0 0
+jp_kyoto_22 0 2 0 0
+in_bangalore_19 0 24 0 0
+us_sumter_sc 0 14 0 0
+us_saint%20paul_mn 0 9 0 0
+si_maribor_09 0 1 0 0
+in_madras_25 0 14 0 0
+au_melbourne_07 0 24 0 0
+id_yogyakarta_10 0 14 0 0
+ru_dolgoprudnyy_47 0 9 0 0
+us_oak%20ridge_tn 0 15 0 0
+us_cumming_ga 0 2 0 0
+us_melrose_ma 0 12 0 0
+it_milan_09 0 9 0 0
+de_berlin_16 0 1 0 0
+us_grand%20junction_co 0 1 0 0
+in_bombay_16 0 1 0 0
+us_grand%20rapids_mi 0 1 0 0
+fr_nice_b8 0 9 0 0
+us_munford_tn 0 10 0 0
+fr_yvette_a3 0 8 0 0
+gb_kent_e6 0 9 0 0
+us_fort%20huachuca_az 0 12 0 0
+us_fremont_ca 0 9 0 0
+us_seattle_wa 0 23 0 0
+cn_guangzhou_30 0 2 0 0
+us_sunnyvale_ca 0 20 0 0
+us_anchorage_ak 0 27 0 0
+us_phoenixville_pa 0 2 0 0
+ae_dubai_03 0 13 0 0
+us_white%20plains_ny 0 11 0 0
+pe_lima_15 0 1 0 0
+us_minneapolis_mn 0 10 0 0
+us_roswell_ga 0 23 0 0
+us_hampton_va 0 2 0 0
+us_modesto_ca 0 15 0 0
+ca_nepean_on 0 10 0 0
+us_shreveport_la 0 2 0 0
+us_kent_wa 0 6 0 0
+us_portage_in 0 9 0 0
+us_worcester_ma 0 2 0 0
+us_newmarket_nh 0 2 0 0
+ua_kiev_13 0 2 0 0
+us_san%20diego_ca 0 37 0 0
+gb_bristol_b7 0 9 0 0
+cn_changchun_05 0 1 0 0
+hn_siguatepeque_04 0 1 0 0
+us_alpharetta_ga 0 11 0 0
+us_chapel%20hill_nc 0 13 0 0
+ca_ottawa_on 0 13 0 0
+it_montelupo%20fiorentino_16 0 10 0 0
+au_sydney_02 0 19 0 0
+us_las%20vegas_nv 0 1 0 0
+es_pamplona_32 0 10 0 0
+ye_sana_04 0 1 0 0
+fr_cézac_b3 0 9 0 0
+us_fontana_ca 0 9 0 0
+us_bakersfield_ca 0 13 0 0
+us_carpinteria_ca 0 10 0 0
+pt_lisboa_14 0 7 0 0
+ca_burnaby_bc 0 1 0 0
+us_sioux%20falls_sd 0 14 0 0
+us_sandy_ut 0 1 0 0
+ua_makiyivka_05 0 1 0 0
+us_oxford_ct 0 30 0 0
+us_boonville_nc 0 9 0 0
+us_jacksonville_il 0 9 0 0
+ca_toronto_on 0 13 0 0
+eg_cairo_11 0 10 0 0
+us_orem_ut 0 18 0 0
+us_san%20antonio_tx 0 17 0 0
+co_bogotá_33 0 1 0 0
+us_mountain%20view_ca 0 1 0 0
+us_oak%20brook_il 0 30 0 0
+gb_bradford_b4 0 12 0 0
+us_miami_fl 0 2 0 0
+pk_karachi_05 0 1 0 0
+ca_london_on 0 9 0 0
+lu_steinsel_03 0 21 0 0
+us_honolulu_hi 0 10 0 0
+us_austin_tx 0 14 0 0
+us_bellevue_wa 0 2 0 0
+us_scranton_pa 0 6 0 0
+lv_livani_22 0 1 0 0
+bg_sofia_42 0 11 0 0
+ru_voronezh_86 0 31 0 0
+gb_newmilns_u4 0 14 0 0
+us_santa%20monica_ca 0 11 0 0
+co_ibagué_28 0 1 0 0
+ca_richmond%20hill_on 0 13 0 0
+us_lubbock_tx 0 9 0 0
+us_camarillo_ca 0 1 0 0
+ru_moscow_48 0 30 0 0
+us_o%20fallon_mo 0 14 0 0
+de_karlsruhe_01 0 9 0 0
+de_frankfurt%20am%20main_05 0 3 0 0
+md_hincesti_52 0 1 0 0
+us_cupertino_ca 0 6 0 0
+us_new%20york_ny 0 26 0 0
+us_oakland_ca 0 9 0 0
+us_los%20angeles_ca 0 7 0 0
+ar_ushuaia_23 0 2 0 0
+jp_tokyo_40 0 23 0 0
+gb_borehamwood_f8 0 11 0 0
+us_downingtown_pa 0 14 0 0
+us_cockeysville_md 0 13 0 0
+de_erfurt_15 0 11 0 0
+gb_derby_d2 0 10 0 0
+il_tel%20aviv_05 0 2 0 0
+de_schwetzingen_01 0 9 0 0
+kr_seoul_11 0 8 0 0
+ca_kitchener_on 0 10 0 0
+th_bangkok_40 0 3 0 0
+us_nova_oh 0 1 0 0
+gb_swindon_p8 0 6 0 0
+us_brighton_ma 0 10 0 0
+at_unterpremstätten_06 0 8 0 0
+END_PLUGIN_geoip_city_maxmind

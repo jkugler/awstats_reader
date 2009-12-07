@@ -5,6 +5,12 @@ Change Log
 | Neutral change
 * Incompatible change
 
+2009-12-06
+  + And more tests. 32 total
+  | Corrected an IOError to an OSError on file or directory not found
+  | Deleted some old comments
+  + Added some test cache files
+
 2009-11-29
   + More tests. Up to 13! :)
 

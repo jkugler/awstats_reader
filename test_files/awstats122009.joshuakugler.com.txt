@@ -1,0 +1,261 @@
+AWSTATS DATA FILE 6.7 (build 1.892)
+# If you remove this file, all statistics for date 200912 will be lost/reset.
+
+# Position (offset in bytes) in this file of beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 1915                
+POS_TIME 2600                
+POS_VISITOR 3263                
+POS_DAY 3530                
+POS_DOMAIN 3676                
+POS_LOGIN 3912                
+POS_ROBOT 4067                
+POS_WORMS 4373                
+POS_EMAILSENDER 4504                
+POS_EMAILRECEIVER 4647                
+POS_SESSION 4723                
+POS_SIDER 4860                
+POS_FILETYPES 5143                
+POS_OS 5311                
+POS_BROWSER 5371                
+POS_SCREENSIZE 5442                
+POS_UNKNOWNREFERER 5516                
+POS_UNKNOWNREFERERBROWSER 5637                
+POS_ORIGIN 5753                
+POS_SEREFERRALS 5883                
+POS_PAGEREFS 6035                
+POS_SEARCHWORDS 6183                
+POS_KEYWORDS 6404                
+POS_MISC 2264                
+POS_ERRORS 6549                
+POS_CLUSTER 3768                
+POS_SIDER_404 6636                
+POS_PLUGIN_geoip_city_maxmind 6839                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20091201012843 251086 53869978 0
+FirstTime 20091201001116
+LastTime 20091201012843
+LastUpdate 20091130160413 251086 0 214421 0 36665
+TotalVisits 2                   
+TotalUnique 2                   
+MonthHostsKnown 2                   
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 0 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 2 2 0 7 7 23491
+1 4 11 17670 2 3 25672
+2 0 0 0 0 0 0
+3 0 0 0 0 0 0
+4 0 0 0 0 0 0
+5 0 0 0 0 0 0
+6 0 0 0 0 0 0
+7 0 0 0 0 0 0
+8 0 0 0 0 0 0
+9 0 0 0 0 0 0
+10 0 0 0 0 0 0
+11 0 0 0 0 0 0
+12 0 0 0 0 0 0
+13 0 0 0 0 0 0
+14 0 0 0 0 0 0
+15 0 0 0 0 0 0
+16 0 0 0 0 0 0
+17 0 0 0 0 0 0
+18 0 0 0 0 0 0
+19 0 0 0 0 0 0
+20 0 0 0 0 0 0
+21 0 0 0 0 0 0
+22 0 0 0 0 0 0
+23 0 0 0 0 0 0
+END_TIME
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 2
+66-230-84-242-rb1.fai.dsl.dynamic.acsalaska.net 3 3 0 20091201011121 20091201001116 /feeds/index.rss2
+77.sub-70-221-156.myvzw.com 3 10 17670 20091201012843 20091201012840 /plugin/checkautobackup
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 1
+20091201 6 13 17670 2
+END_DAY
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 2
+net 3 3 0
+com 3 10 17670
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 5
+wordpress 4 348 20091201011957 0
+googlebot 2 9674 20091201003718 0
+universalfeedparser 1 0 20091201005832 0
+slurp 1 6558 20091201004422 0
+baiduspider 1 7085 20091201000816 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Session range - Number of visits
+BEGIN_SESSION 0
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 4
+/feeds/index.rss2 3 0 1 0
+/plugin/pngbehavior.htc 1 1008 0 0
+/plugin/checkautobackup 1 20 0 0
+/archives/16-Skills-vs.-Theory-Which-Should-Be-Taught.html 1 9015 1 0
+END_SIDER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 8
+htc 1 1008 0 0
+css 1 2162 0 0
+rss2 3 0 0 0
+html 1 9015 0 0
+jpg 2 2937 0 0
+png 1 468 0 0
+Unknown 1 20 0 0
+gif 3 2060 0 0
+END_FILETYPES
+
+# OS ID - Hits
+BEGIN_OS 2
+winlong 10
+Unknown 3
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 2
+msie8.0 10
+Unknown 3
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 1
+Apple-PubSub/65.11 20091201011121
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 1
+Apple-PubSub/65.11 20091201011121
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 4 4
+From1 0 0
+From2 1 1
+From3 0 0
+From4 1 8
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+ask 1 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 1
+what+are+the+things+learned+and+taught+with+on+the+job+training%3f 1
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 11
+the 2
+training%3f 1
+what 1
+taught 1
+learned 1
+job 1
+on 1
+things 1
+and 1
+with 1
+are 1
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 1
+404 1 25498
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 1
+/styles/widgets/blog-widget.css 1 http://joshuakugler.com/archives/16-Skills-vs.-Theory-Which-Should-Be-Taught.html
+END_SIDER_404
+
+# Plugin key - Pages - Hits - Bandwidth - Last access
+BEGIN_PLUGIN_geoip_city_maxmind 2
+us_cave%20spring_ga 0 10 0 0
+us_fairbanks_ak 0 3 0 0
+END_PLUGIN_geoip_city_maxmind

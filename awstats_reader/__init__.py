@@ -72,7 +72,7 @@ class AwstatsReader(object):
         self.__curr_year_index = -1
 
         if not os.path.exists(directory):
-            raise IOError((2, 'No such directory: %s' % directory, directory))
+            raise OSError((2, 'No such directory: %s' % directory, directory))
 
         for fname in glob.glob(os.path.join(directory, 'awstats??????.' + domain + '.txt')):
             stat_name = os.path.basename(fname)
@@ -129,6 +129,8 @@ class AwstatsYear(object):
     def __str__(self):
         self.__month_list = sorted(self.__months.keys())
         return "<AwstatsYear " + str(self.__year) + ": " + ', '.join([str(m) for m in self.__month_list]) + ">"
+
+    year = property(lambda self:self.__year)
 
 class AwstatsMonth(object):
     def __init__(self, year, month, fname):
@@ -199,6 +201,8 @@ class AwstatsMonth(object):
         return self.__section_list
 
     version = property(lambda self:self.__version)
+    year = property(lambda self:self.__year)
+    month = property(lambda self:self.__month)
 
     __getitem__ = __get_section
     __getattr__ = __get_section

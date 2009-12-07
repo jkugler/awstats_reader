@@ -2,6 +2,7 @@
 
 import datetime
 import os
+import types
 import unittest
 
 import awstats_reader
@@ -10,7 +11,9 @@ opd = os.path.dirname
 
 test_file_dir = os.path.join(opd(opd(os.path.abspath(__file__))), 'test_files')
 
-class TestAwstats(unittest.TestCase):
+print test_file_dir
+
+class TestAwstatsHelpers(unittest.TestCase):
     """Tests various helper functions in the awstats_reader package"""
 
     def test_14_digit_datetime(self):
@@ -71,20 +74,132 @@ class TestAwstatsReader(unittest.TestCase):
         """Ensure getting a valid year returns an AwstatsYear object"""
         ar = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')
         obj = ar[2009]
-        self.assertTrue(isinstance(obj, awstats_reader.AwstatsReader))
+        self.assertTrue(isinstance(obj, awstats_reader.AwstatsYear))
 
     def test_invalid_dir(self):
         """Ensure passing an invalid directory raises an exception"""
-        self.assertRaises(IOError, awstats_reader.AwstatsReader, '/tmp/XYZ', 'example.com')
+        self.assertRaises(OSError, awstats_reader.AwstatsReader, '/tmp/XYZ', 'example.com')
+
+    def test_iter_operation(self):
+        """Ensure AwstatsYear's __iter__ function is working"""
+        ar = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')
+        year_iter = ar.__iter__()
+        self.assertTrue(isinstance(year_iter, types.GeneratorType))
+
+    def test_found_all_years(self):
+        """Ensure all years were found"""
+        ar = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')
+        self.assertEqual([ary.year for ary in ar], [2008,2009])
 
 class TestAwstatsYear(unittest.TestCase):
-    pass
+    def test_invalid_month(self):
+        """Ensure getting an invalid month raises an exception"""
+        ar_year = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009]
+        self.assertRaises(KeyError, ar_year.__getitem__, 1)
+
+    def test_valid_month(self):
+        """Ensure getting a valid month returns an AwstatsMonth object"""
+        ar_month = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009][11]
+        self.assertTrue(isinstance(ar_month, awstats_reader.AwstatsMonth))
+
+    def test_found_all_months(self):
+        """Ensure all months were found"""
+        ary = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009]
+        self.assertEqual([arm.month for arm in ary], [11,12])
+
+    def test_contains_true(self):
+        """Ensure __contains__ is working positively"""
+        ary = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009]
+        self.assertTrue(11 in ary)
+
+    def test_contains_false(self):
+        """Ensure __contains__ is working negatively"""
+        ary = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009]
+        self.assertFalse(10 in ary)
 
 class TestAwstatsMonth(unittest.TestCase):
-    pass
+    wanted_sections = ['general', 'time', 'visitor', 'day', 'domain',
+                       'login', 'robot', 'worms', 'emailsender',
+                       'emailreceiver', 'session', 'sider', 'filetypes', 'os',
+                       'browser', 'screensize', 'unknownreferer',
+                       'unknownrefererbrowser', 'origin', 'sereferrals',
+                       'pagerefs', 'searchwords', 'keywords', 'misc', 'errors',
+                       'cluster', 'sider_404', 'plugin_geoip_city_maxmind']
+
+    def test_month_iterator(self):
+        """Ensure all sections are found"""
+        arm = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009][11]
+        self.assertEqual(list(arm), self.__class__.wanted_sections)
+
+    def test_month_keys(self):
+        """Ensure all sections are found"""
+        arm = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009][11]
+        self.assertEqual(arm.keys(), self.__class__.wanted_sections)
+
+    def test_get_invalid_section(self):
+        """Ensure getting an invalid sections raises an exception"""
+        arm = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009][11]
+        self.assertRaises(KeyError, arm.__getitem__, 'invalid_section')
+
+    def test_get_valid_section(self):
+        """Ensure getting an valid section resturns an AwstatsSection object"""
+        arm = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009][11]
+        ars = arm['general']
+        self.assertTrue(isinstance(ars, awstats_reader.AwstatsSection))
+
+    def test_len(self):
+        """Ensure the len() function returns the correct value"""
+        arm = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009][11]
+        self.assertEqual(len(arm.keys()), len(self.__class__.wanted_sections))
 
 class TestAwstatsSection(unittest.TestCase):
-    pass
+    wanted_lines = ['LastLine', 'FirstTime', 'LastTime', 'LastUpdate',
+                    'TotalVisits', 'TotalUnique', 'MonthHostsKnown',
+                    'MonthHostsUnknown']
+
+    def test_get_valid_line(self):
+        """Ensure getting a valid line returns an ordered dict"""
+        ars = awstats_reader.AwstatsReader(test_file_dir,
+                                           'jjncj.com')[2009][11]['general']
+        self.assertTrue(isinstance(ars['TotalVisits'], awstats_reader.AttrDict))
+
+    def test_get_invalid_line(self):
+        """Ensure getting an invalid line raises an exception"""
+        ars = awstats_reader.AwstatsReader(test_file_dir,
+                                           'jjncj.com')[2009][11]['general']
+        self.assertRaises(KeyError, ars.__getitem__, 'invalid_section')
+
+    def test_section_iterator(self):
+        """Ensure the section iterator works"""
+        ars = awstats_reader.AwstatsReader(test_file_dir,
+                                           'jjncj.com')[2009][11]['general']
+        self.assertEqual(list(ars), self.__class__.wanted_lines)
+
+    def test_section_keys(self):
+        """Ensure the section keys works"""
+        ars = awstats_reader.AwstatsReader(test_file_dir,
+                                           'jjncj.com')[2009][11]['general']
+        self.assertEqual(ars.keys(), self.__class__.wanted_lines)
+
+    def test_get_return_default(self):
+        """Ensure get() returns the default default value"""
+        ars = awstats_reader.AwstatsReader(test_file_dir,
+                                           'jjncj.com')[2009][11]['general']
+        self.assertTrue(ars.get('invalid_row') is None)
+
+    def test_get_return_default_provided(self):
+        """Ensure get() returns the provided default value"""
+        ars = awstats_reader.AwstatsReader(test_file_dir,
+                                           'jjncj.com')[2009][11]['general']
+        self.assertEqual(ars.get('invalid_row', 'ZZZZZZ'), 'ZZZZZZ')
+
+    def test_get_return_desired_value(self):
+        """Ensure get() returns the desired value"""
+        ars = awstats_reader.AwstatsReader(test_file_dir,
+                                           'jjncj.com')[2009][11]['general']
+        self.assertEqual(ars.get('TotalVisits'),
+                         awstats_reader.AttrDict([('value', 1475)]))
+
 
 class TestAwstatsMerge(unittest.TestCase):
     """Test functions and procedures in awstats_cache_merge"""
@@ -100,19 +215,4 @@ class TestAwstatsMerge(unittest.TestCase):
 
         self.assertEqual(f(('dz', od)), 386873)
 
-# Some old quick and dirty tests. Will delete later.
-#obj  = AwstatsReader.AwstatsReader('/home/jkugler/tmp/awstats_logs', sys.argv[1])
-#print obj
-#print obj[2007]
-#print obj[2008][6]
-#m = obj[2009][7]
-#print m['general']
-#print m['general']['LastLine']
-#print m['general'].LastLine
-#print m.general.LastLine
-#print m['general']['TotalVisits']
-#print m['visitor']['132.115.in-addr.arpa']
-
-#for x,y in m.pagerefs.items():
-    #print x, m.pagerefs[x].pages, m.pagerefs[x].hits
 
