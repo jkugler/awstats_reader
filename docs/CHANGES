@@ -9,7 +9,7 @@ Change Log
   + More tests. 43 total
   | Took dead code out of AwstatsDate
   * Changed AwstatsMonth.__str__ from YYYY/MM to YYYY-MM
-
+  | Updated documentation
 
 2009-12-06
   + And more tests. 32 total

@@ -11,8 +11,6 @@ opd = os.path.dirname
 
 test_file_dir = os.path.join(opd(opd(os.path.abspath(__file__))), 'test_files')
 
-print test_file_dir
-
 class TestAwstatsHelpers(unittest.TestCase):
     """Tests various helper functions in the awstats_reader package"""
 

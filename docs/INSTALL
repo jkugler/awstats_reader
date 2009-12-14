@@ -4,3 +4,6 @@ http://www.voidspace.org.uk/python/odict.html
 Right now, it's not that complicated. Copy the AwstatsReader directory to a
 path in your sys.path.  On a unix-like system, that's probably
 /usr/local/lib/python2.x/site-packages or /usr/local/lib/python2.x/dist-packages.
+
+Copy awstats_cache_merge.py to somewhere in your $PATH (/usr/bin,
+/usr/local/bin, $HOME/bin, etc)
