@@ -26,12 +26,7 @@ class AwstatsDateTime(datetime.datetime):
             return datetime.datetime.strftime(self, format)
 
 class AwstatsDate(datetime.date):
-    def strftime(self, format):
-        # See comment on AwstatsDatetime
-        if self.year == 1:
-            return '0'
-        else:
-            return datetime.date.strftime(self, format)
+    pass
 
 def awstats_datetime(date_string):
     """
@@ -209,7 +204,7 @@ class AwstatsMonth(object):
 
 
     def __str__(self):
-        return "<AwstatsMonth " + str(self.__year) + "/" + str(self.__month).rjust(2, '0') +">"
+        return "<AwstatsMonth " + str(self.__year) + "-" + str(self.__month).rjust(2, '0') +">"
 
 class AwstatsSection(object):
     def __init__(self, version, section_name, raw_data):

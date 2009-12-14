@@ -5,6 +5,12 @@ Change Log
 | Neutral change
 * Incompatible change
 
+2009-12-13
+  + More tests. 43 total
+  | Took dead code out of AwstatsDate
+  * Changed AwstatsMonth.__str__ from YYYY/MM to YYYY-MM
+
+
 2009-12-06
   + And more tests. 32 total
   | Corrected an IOError to an OSError on file or directory not found
