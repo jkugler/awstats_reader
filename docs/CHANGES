@@ -5,6 +5,9 @@ Change Log
 | Neutral change
 * Incompatible change
 
+2009-12-15
+  + Some documenation improvements
+
 2009-12-13
   + More tests. 43 total
   | Took dead code out of AwstatsDate

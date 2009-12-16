@@ -14,6 +14,10 @@ od = odict.OrderedDict
 d = dict
 
 class AwstatsDateTime(datetime.datetime):
+    """
+    A subclass of datetime.datetime to handle AWStats' usage of
+    year '0' in some cases.
+    """
     def strftime(self, format):
         # A special flag value used by Awstats Reader
         # It's an (relatively safe) assumption that Awstats Reader won't be
@@ -55,7 +59,8 @@ class AttrDict(odict.OrderedDict):
 
 class AwstatsReader(object):
     """
-
+    The top-level object that takes the directory and domain and finds all
+    the cache files, and returns the year objects given a subscript of a year
     """
     years = property(lambda self:self.__year_list)
 
@@ -96,8 +101,9 @@ class AwstatsReader(object):
         return "<AwstatsReader: " + ', '.join([str(y) for y in self.__year_list]) + ">"
 
 class AwstatsYear(object):
-    months = property(lambda self:self.__month_list)
-
+    """
+    The AWStats object containing the months for a given year
+    """
     def __init__(self, domain, year):
         self.__domain = domain
         self.__year = year
@@ -125,9 +131,13 @@ class AwstatsYear(object):
         self.__month_list = sorted(self.__months.keys())
         return "<AwstatsYear " + str(self.__year) + ": " + ', '.join([str(m) for m in self.__month_list]) + ">"
 
+    months = property(lambda self:self.__month_list)
     year = property(lambda self:self.__year)
 
 class AwstatsMonth(object):
+    """
+    The AWStats object containing the sections for a given month
+    """
     def __init__(self, year, month, fname):
         self.__year = year
         self.__month = month
@@ -181,14 +191,26 @@ class AwstatsMonth(object):
             raise KeyError("Section '%s' does not exist" % name)
 
     def __iter__(self):
+        """
+        Iterates through the list of sections in the month
+        """
         if not self.__fobject:
             self.__init_file()
         return (s for s in self.__section_list)
 
     def __len__(self):
+        """
+        Returns the number of sections in the month
+        """
         if not self.__fobject:
             self.__init_file()
         return len(self.__section_list)
+
+    def __str__(self):
+        return "<AwstatsMonth " + str(self.__year) + "-" + str(self.__month).rjust(2, '0') +">"
+
+    __getitem__ = __get_section
+    __getattr__ = __get_section
 
     def keys(self):
         if not self.__fobject:
@@ -199,14 +221,11 @@ class AwstatsMonth(object):
     year = property(lambda self:self.__year)
     month = property(lambda self:self.__month)
 
-    __getitem__ = __get_section
-    __getattr__ = __get_section
-
-
-    def __str__(self):
-        return "<AwstatsMonth " + str(self.__year) + "-" + str(self.__month).rjust(2, '0') +">"
 
 class AwstatsSection(object):
+    """
+    Object containing the data from a section in a month's file
+    """
     def __init__(self, version, section_name, raw_data):
         self.__name = section_name
         self.__format = _section_format['__default__'][section_name]
@@ -287,7 +306,7 @@ class AwstatsSection(object):
 
     def merge(self, other, row_name, field_name):
         """
-        'other' is the other section which we are merging
+        'other' is the AwstatsSection object with which we are merging
         """
         if row_name in _section_merge_rules['__default__'][self.__name]:
             merge_rule = _section_merge_rules['__default__'][self.__name][row_name][field_name]
