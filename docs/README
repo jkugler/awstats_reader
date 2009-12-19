@@ -43,9 +43,9 @@ See COPYING
 
 EXAMPLE
 =======
-import AwstatsReader
+import awstats_reader
 
-obj  = AwstatsReader.AwstatsReader('/path/to/awstats_logs', 'example.com')
+obj  = awstats_reader.AwstatsReader('/path/to/awstats_logs', 'example.com')
 
 print obj[2007]
 print obj[2008][6]
