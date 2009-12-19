@@ -1,8 +1,8 @@
 ABOUT THE MODULE
 ================
-AwstatsReader is an attempt at a pythonic interface to AWStats data cache
-files.  Using it, you can access year, month, and individual data points
-via dictionary-like accessors.
+AwstatsReader is a pythonic interface to AWStats data cache files.  Using it,
+you can access year and month via dict-like subscripts, and and individual
+data points via both dict-like subscripts and attribute-like accessors.
 
 Download: http://azariah.com/open_source.html
 
@@ -11,14 +11,11 @@ ABOUT THE AUTHOR
 Joshua Kugler (joshua@azariah.com) is a programmer and system administator
 with over 10 years of industory experience.  He is currently looking for a
 job.  Happen to have one you could offer him? :)
-Resume at: http://jjncj.com/papers/KuglerAll.pdf
+Resume at: http://jjncj.com/papers/KuglerResume.pdf
 
 DISCLAIMER
 ==========
-This is a "release early, release often" release, codnamed Joshua-hopes-
-somebody-downloads-this-and-likes-code-quality-and-hires-him.
-
-This is an late-alpha release.  There are 43 tests which cover most, if not
+This is an early-beta release.  There are 43 tests which cover most, if not
 all of the functionality, but not much documentation.  The interface should be
 considered stable, but not in concrete.  The usage of this project in a "real
 world" situation (awstats_cache_merge.py) led to many improvements to the API.
@@ -32,7 +29,7 @@ tested other versions yet, as 6.5 is the only version I've had access to so far.
 
 REPOSITORY
 ==========
-The public repository can be found at http://github.com/jkugler/awstats_reader
+No public repository yet. Just haven't set it up.
 
 INSTALLATION
 ============
