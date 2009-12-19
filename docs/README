@@ -4,6 +4,8 @@ AwstatsReader is a pythonic interface to AWStats data cache files.  Using it,
 you can access year and month via dict-like subscripts, and and individual
 data points via both dict-like subscripts and attribute-like accessors.
 
+As of version 0.5, it includes a script for merging AWStats Cache files.
+
 Download: http://azariah.com/open_source.html
 
 ABOUT THE AUTHOR
