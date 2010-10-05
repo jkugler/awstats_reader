@@ -42,19 +42,21 @@ See COPYING
 
 EXAMPLE
 =======
-import awstats_reader
+Usage is pretty self explanatory::
 
-obj  = awstats_reader.AwstatsReader('/path/to/awstats_logs', 'example.com')
+    import awstats_reader
 
-print obj[2007]
-print obj[2008][6]
-m = obj[2009][7]
-print m['general']
-# Access like a dictionary...
-print m['general']['LastLine']
-#...or like an object attribute
-print m['general'].LastLine
-print m.general.LastLine
+    obj  = awstats_reader.AwstatsReader('/path/to/awstats_logs', 'example.com')
+
+    print obj[2007]
+    print obj[2008][6]
+    m = obj[2009][7]
+    print m['general']
+    # Access like a dictionary...
+    print m['general']['LastLine']
+    #...or like an object attribute
+    print m['general'].LastLine
+    print m.general.LastLine
 
 FEEDBACK
 ========
