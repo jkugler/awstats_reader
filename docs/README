@@ -11,13 +11,12 @@ Download: http://azariah.com/open_source.html
 ABOUT THE AUTHOR
 ================
 Joshua Kugler (joshua@azariah.com) is a programmer and system administator
-with over 10 years of industory experience.  He is currently looking for a
-job.  Happen to have one you could offer him? :)
+with over 10 years of industory experience.
 Resume at: http://jjncj.com/papers/KuglerResume.pdf
 
 DISCLAIMER
 ==========
-This is an early-beta release.  There are 43 tests which cover most, if not
+This is an beta-ish release.  There are 43 tests which cover most, if not
 all of the functionality, but not much documentation.  The interface should be
 considered stable, but not in concrete.  The usage of this project in a "real
 world" situation (awstats_cache_merge.py) led to many improvements to the API.
@@ -31,7 +30,7 @@ tested other versions yet, as 6.5 is the only version I've had access to so far.
 
 REPOSITORY
 ==========
-No public repository yet. Just haven't set it up.
+http://github.com/jkugler/awstats_reader
 
 INSTALLATION
 ============
