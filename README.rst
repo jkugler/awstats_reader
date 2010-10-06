@@ -10,8 +10,8 @@ Download: http://azariah.com/open_source.html
 
 ABOUT THE AUTHOR
 ================
-Joshua Kugler (joshua@azariah.com) is a programmer and system administator
-with over 10 years of industory experience.
+Joshua Kugler (joshua@azariah.com) is a programmer and system ad ministator
+with over 10 years of industry experience.
 Resume at: http://jjncj.com/papers/KuglerResume.pdf
 
 DISCLAIMER
