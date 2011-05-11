@@ -174,7 +174,7 @@ class AwstatsMonth(object):
         for x in xrange(lines):
             line_data = self.__fobject.readline().strip()
             # Seems to be an off-by-one error in some sections
-            if line_data == end_flag:
+            if line_data == end_flag: # pragma: no cover
                 break
             k,v = line_data.split(' ', 1)
             section_data[k] = v.split(' ')
@@ -203,7 +203,7 @@ class AwstatsMonth(object):
         Returns the number of sections in the month
         """
         if not self.__fobject:
-            self.__init_file()
+            self.__init_file() # pragma: no cover
         return len(self.__section_list)
 
     def __str__(self):
@@ -245,11 +245,11 @@ class AwstatsSection(object):
             items = odict.OrderedDict()
             for index, f in enumerate(format):
                 if len(f) == 3 and f[2] == 'opt' and len(data) <= index:
-                    break
+                    break # TODO: Why isn't this being triggered in testing?
                 items[f[0]] = f[1](data[index])
             return AttrDict(items)
         else:
-            return format(data[0])
+            return format(data[0]) # TODO: Why isn't this being triggered in testing?
 
     __getitem__ = __get_data
     __getattr__ = __get_data
@@ -320,10 +320,19 @@ class AwstatsSection(object):
             try:
                 return AwstatsSection.merge_funcs[merge_rule](self.get(row_name)[field_name],
                                                               other.get(row_name)[field_name])
-            except KeyError:
+            except KeyError: # TODO: Need a way to trigger this error
                 raise RuntimeError("Unhandled merge rule for section '%s', row '%s', field '%s': '%s'"
                                    % (self.__name, row_name, field_name, merge_rule))
 
+def make_get_field(field_name):
+    """
+    This returns a function that will extract the field in a tuple of the form:
+    ('dz', AttrDict([('pages', 4), ('hits', 15), ('bandwidth', 386873)]))
+    """
+    def get_field(row):
+        return row[1][field_name]
+
+    return get_field
 
 _section_format = {}
 

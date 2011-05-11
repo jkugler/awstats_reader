@@ -6,22 +6,13 @@ import os
 import sys
 import time
 
-from awstats_reader import AwstatsReader as ar, AwstatsDateTime, AwstatsDate
+from awstats_reader import (AwstatsReader as ar, AwstatsDateTime, AwstatsDate,
+                            make_get_field)
 from odict import OrderedDict as od
 
 ap = os.path.abspath
 
 __version___ = '0.1'
-
-def make_get_field(field_name):
-    """
-    This returns a function that will extract the field in a tuple of the form:
-    ('dz', AttrDict([('pages', 4), ('hits', 15), ('bandwidth', 386873)]))
-    """
-    def get_field(row):
-        return row[1][field_name]
-
-    return get_field
 
 def get_opts():
 
@@ -152,7 +143,7 @@ def merge_month(m1, m2):
             elif sort_by == 'key_int':
                 data[section] = od(sorted(data[section].iteritems(), key=lambda x: int(x[0])))
             else:
-                data[section] = od(sorted(data[section].iteritems(), key=make_get_field(sort_by), reverse=sort_reversed))
+                data[section] = od(sorted(data[section].iteritems(), key=awmake_get_field(sort_by), reverse=sort_reversed))
 
     return data
 

@@ -2,7 +2,7 @@
 
 import os
 import sys
-import unittest
+import unittest2 as unittest
 
 # Set up the test environment
 opd = os.path.dirname

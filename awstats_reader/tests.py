@@ -3,7 +3,7 @@
 import datetime
 import os
 import types
-import unittest
+import unittest2 as unittest
 
 import awstats_reader
 
@@ -45,6 +45,11 @@ class TestAwstatsHelpers(unittest.TestCase):
         """Ensure the Awstats 'year zero' is printed correctly"""
         obj = awstats_reader.awstats_datetime('0')
         self.assertEqual(obj.strftime('%Y%m%d%H%M%S'), '0')
+
+    def test_good_year_datetime_output(self):
+        """Ensure a good date is printed correctly)"""
+        obj = awstats_reader.awstats_datetime('20110430184200')
+        self.assertEqual(obj.strftime('%Y%m%d%H%M%S'), '20110430184200')
 
     def test_datetime_invalid_string(self):
         """Ensure an invalid date/time string raises an exception"""
@@ -94,15 +99,15 @@ class TestAwstatsReader(unittest.TestCase):
         ar = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')
         self.assertEqual([ary.year for ary in ar], [2008,2009])
 
-    def test_contains_true(self):
+    def test_contains_year_true(self):
         """Ensure __contains__ is working positively"""
-        ary = self.ar = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009]
-        self.assertTrue(11 in ary)
+        ary = self.ar = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')
+        self.assertTrue(2008 in ary)
 
-    def test_contains_false(self):
+    def test_contains_year_false(self):
         """Ensure __contains__ is working negatively"""
-        ary = self.ar = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009]
-        self.assertFalse(10 in ary)
+        ary = self.ar = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')
+        self.assertFalse(2111 in ary)
 
     def test_str(self):
         """Ensure AwstatsReader __str__ is operating correctly"""
@@ -134,6 +139,16 @@ class TestAwstatsYear(unittest.TestCase):
         """Ensure month is working"""
         ary = self.ar[2009]
         self.assertEqual([arm.month for arm in ary], [11,12])
+
+    def test_contains_month_true(self):
+        """Ensure __contains__ is working positively"""
+        ary = self.ar = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009]
+        self.assertTrue(11 in ary)
+
+    def test_contains_month_false(self):
+        """Ensure __contains__ is working negatively"""
+        ary = self.ar = awstats_reader.AwstatsReader(test_file_dir, 'jjncj.com')[2009]
+        self.assertFalse(10 in ary)
 
     def test_str(self):
         """Ensure AwstatsYear __str__ is operating correctly"""
@@ -270,16 +285,25 @@ class TestAwstatsSection(unittest.TestCase):
         self.assertEqual(ars.merge(ars2, '/styles/widgets/blog-widget.css',
                                    'last_url_referer'), 'http://joshuakugler.com/')
 
+    def test_str_function(self):
+        """Test the 'str' function"""
+        ars = self.ar[2009][11]['general']
+        self.assertEqual(str(ars), "<AwstatsSection general, OrderedDict([('LastLine', ['20091202000343', '1011585', '206082338', '54716901457']), ('FirstTime', ['20091101000237']), ('LastTime', ['20091130234113']), ('LastUpdate', ['20091201094510', '1011585', '0', '886950', '70062', '54572']), ('TotalVisits', ['1475']), ('TotalUnique', ['547']), ('MonthHostsKnown', ['397']), ('MonthHostsUnknown', ['196'])])>")
+
+    def test_items_function(self):
+        """Test the 'str' function"""
+        ars = self.ar[2009][11]['general']
+        self.assertEqual(list(ars.items()), [('LastLine', ['20091202000343', '1011585', '206082338', '54716901457']), ('FirstTime', ['20091101000237']), ('LastTime', ['20091130234113']), ('LastUpdate', ['20091201094510', '1011585', '0', '886950', '70062', '54572']), ('TotalVisits', ['1475']), ('TotalUnique', ['547']), ('MonthHostsKnown', ['397']), ('MonthHostsUnknown', ['196'])])
+
 class TestAwstatsMerge(unittest.TestCase):
     """Test functions and procedures in awstats_cache_merge"""
 
     def test_make_get_field(self):
         """Ensure make_get_field constructs a function which returns the proper value"""
         import odict
-        import awstats_cache_merge
 
         od = odict.OrderedDict([('pages', 4), ('hits', 15), ('bandwidth', 386873)])
 
-        f = awstats_cache_merge.make_get_field('bandwidth')
+        f = awstats_reader.make_get_field('bandwidth')
 
         self.assertEqual(f(('dz', od)), 386873)
